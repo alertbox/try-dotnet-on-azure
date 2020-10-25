@@ -1,0 +1,23 @@
+{
+    "recommendations": [
+        // Remote - Container
+        "ms-azuretools.vscode-docker",
+        "ms-vscode-remote.remote-containers",
+        // .NET
+        "ms-dotnettools.csharp",
+        "ms-dotnettools.vscode-dotnet-runtime",
+        // Web
+        "msjsdiag.debugger-for-chrome",
+        "humao.rest-client",
+        // Editor
+        "editorconfig.editorconfig",
+        "coenraads.bracket-pair-colorizer-2",
+        "esbenp.prettier-vscode",
+        "visualstudioexptteam.vscodeintellicode",
+        "christian-kohler.npm-intellisense",
+        "eg2.vscode-npm-script",
+        "redhat.vscode-yaml",
+        "redhat.fabric8-analytics",
+        "dbaeumer.vscode-eslint",
+    ],
+}

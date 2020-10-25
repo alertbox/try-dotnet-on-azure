@@ -1,0 +1,35 @@
+@baseurl = https://localhost:5001
+
+###
+
+GET {{baseurl}}/todos HTTP/1.1
+
+###
+
+GET {{baseurl}}/todos/?q=ash HTTP/1.1
+
+###
+
+GET {{baseurl}}/todos/id/2 HTTP/1.1
+
+###
+
+POST {{baseurl}}/todos HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Wash the dog"
+}
+
+### 
+
+PUT {{baseurl}}/todos/id/3 HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Feed the fish"
+}
+
+###
+
+DELETE {{baseurl}}/todos/id/3 HTTP/1.1
