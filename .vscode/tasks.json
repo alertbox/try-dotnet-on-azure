@@ -4,7 +4,7 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "dotnet build ${workspaceFolder}/src",
+            "command": "dotnet build ${workspaceFolder}",
             "problemMatcher": "$tsc"
         },
         // {
@@ -16,7 +16,7 @@
         {
             "label": "watch",
             "type": "shell",
-            "command": "dotnet watch -p ${workspaceFolder}/src run",
+            "command": "dotnet watch -p ${workspaceFolder}/src/Web run",
             "problemMatcher": "$tsc"
         }
     ]
