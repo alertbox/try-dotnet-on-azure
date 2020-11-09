@@ -1,0 +1,5 @@
+@baseurl = https://localhost:5001
+
+###
+
+GET {{baseurl}}/health HTTP/1.1
