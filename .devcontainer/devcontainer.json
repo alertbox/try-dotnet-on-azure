@@ -21,6 +21,7 @@
 		// .NET
 		"ms-dotnettools.csharp",
 		"ms-dotnettools.vscode-dotnet-runtime",
+		"ms-vscode.azurecli",
 		// Web
 		"msjsdiag.debugger-for-chrome",
 		"humao.rest-client",
@@ -62,7 +63,7 @@
 	//      "mounts": [ "source=${env:HOME}${env:USERPROFILE}/.aspnet/https,target=/home/vscode/.aspnet/https,type=bind" ],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "dotnet restore src",
+	"postCreateCommand": "dotnet restore",
 
 	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
 	// "remoteUser": "vscode",
