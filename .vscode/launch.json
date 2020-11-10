@@ -11,7 +11,7 @@
             "program": "dotnet",
             "args": ["run"],
             // Uncomment to specify the project.
-            // "cwd": "${workspaceFolder}/test-project",
+            "cwd": "${workspaceFolder}/src/Rest",
         }
     ]
 }

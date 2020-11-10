@@ -7,16 +7,17 @@
             "command": "dotnet build ${workspaceFolder}",
             "problemMatcher": "$tsc"
         },
+        // Uncomment to specify the project.
         // {
         //     "label": "publish",
         //     "type": "shell",
-        //     "command": "dotnet publish ${workspaceFolder}/test-project/aspnetapp.csproj",
+        //     "command": "dotnet publish ${workspaceFolder}/test-project",
         //     "problemMatcher": "$tsc"
         // },
         {
             "label": "watch",
             "type": "shell",
-            "command": "dotnet watch -p ${workspaceFolder}/src/Web run",
+            "command": "dotnet watch -p ${workspaceFolder}/src/Rest run",
             "problemMatcher": "$tsc"
         }
     ]
