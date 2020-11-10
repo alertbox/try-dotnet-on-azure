@@ -1,6 +1,6 @@
 using System;
 
-namespace Todo.Web
+namespace Weather.Rest
 {
     public class WeatherForecast
     {

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace Todo.Web.Controllers
+namespace Weather.Rest.Controllers
 {
     [ApiController]
     [Route("[controller]")]
