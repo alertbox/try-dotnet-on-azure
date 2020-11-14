@@ -17,8 +17,8 @@ RUN bash /tmp/library-scripts/common-debian.sh "${INSTALL_ZSH}" "${USERNAME}" "$
     && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts
 
 # [Option] Install Node.js
-ARG INSTALL_NODE="false"
-ARG NODE_VERSION="none"
+ARG INSTALL_NODE="true"
+ARG NODE_VERSION="lts/*"
 ENV NVM_DIR=/usr/local/share/nvm
 ENV NVM_SYMLINK_CURRENT=true \
     PATH=${NVM_DIR}/current/bin:${PATH}
@@ -27,7 +27,7 @@ RUN if [ "$INSTALL_NODE" = "true" ]; then bash /tmp/library-scripts/node-debian.
     && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts
 
 # [Option] Install Azure CLI
-ARG INSTALL_AZURE_CLI="false"
+ARG INSTALL_AZURE_CLI="true"
 COPY library-scripts/azcli-debian.sh /tmp/library-scripts/
 RUN if [ "$INSTALL_AZURE_CLI" = "true" ]; then bash /tmp/library-scripts/azcli-debian.sh; fi \
     && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts

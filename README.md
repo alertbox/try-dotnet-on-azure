@@ -24,7 +24,7 @@ dotnet add src/Infrastructure reference src/Application
 
 ```bash
 # Create a solution file and add projects
-dotnet new sln Weather
+dotnet new sln -n Weather
 dotnet sln add src/Rest src/Application src/Infrastructure
 ```
 

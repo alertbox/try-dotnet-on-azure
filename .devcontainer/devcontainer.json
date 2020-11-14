@@ -1,15 +1,15 @@
 {
-	"name": "C# (.NET)",
+	"name": ".NET 5.0+",
 	"build": {
 		"dockerfile": "Dockerfile",
+		// Options
 		"args": { 
 			// Update 'VARIANT' to pick a .NET version: latest, 5.0
 			// See full tag list here https://hub.docker.com/_/microsoft-dotnet-sdk/
 			"VARIANT": "latest",
-			// Options
-			"INSTALL_NODE": "true",
+			"INSTALL_NODE": "false",
 			"NODE_VERSION": "lts/*",
-			"INSTALL_AZURE_CLI": "true"
+			"INSTALL_AZURE_CLI": "false"
 		}
 	},
 	// Set *default* container specific settings.json values on container create.
@@ -21,7 +21,14 @@
 		// .NET
 		"ms-dotnettools.csharp",
 		"ms-dotnettools.vscode-dotnet-runtime",
-		"ms-vscode.azurecli",
+		// Azure
+		// "ms-vscode.azurecli",
+		// "ms-azuretools.vscode-azurefunctions",
+		// Node.js
+		// "christian-kohler.npm-intellisense",
+		// "eg2.vscode-npm-script",
+		// "dbaeumer.vscode-eslint",
+		// "redhat.vscode-yaml",
 		// Web
 		"msjsdiag.debugger-for-chrome",
 		"humao.rest-client",
@@ -30,11 +37,7 @@
 		"coenraads.bracket-pair-colorizer-2",
 		"esbenp.prettier-vscode",
 		"visualstudioexptteam.vscodeintellicode",
-		"christian-kohler.npm-intellisense",
-		"eg2.vscode-npm-script",
-		"redhat.vscode-yaml",
 		"redhat.fabric8-analytics",
-		"dbaeumer.vscode-eslint",
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [5000, 5001],
@@ -63,9 +66,9 @@
 	//      "mounts": [ "source=${env:HOME}${env:USERPROFILE}/.aspnet/https,target=/home/vscode/.aspnet/https,type=bind" ],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "dotnet restore",
+	// "postCreateCommand": "dotnet restore",
 
-	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
+	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	// "remoteUser": "vscode",
 	// Uncomment to indicates whether VS Code should stop the containers when the VS Code window is closed / shut down. Values are "none" and "stopCompose" (default).
 	// "shutdownAction": "none",

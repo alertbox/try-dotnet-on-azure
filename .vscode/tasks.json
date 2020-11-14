@@ -3,22 +3,40 @@
     "tasks": [
         {
             "label": "build",
-            "type": "shell",
-            "command": "dotnet build ${workspaceFolder}",
-            "problemMatcher": "$tsc"
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Weather.sln",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
         },
-        // Uncomment to specify the project.
-        // {
-        //     "label": "publish",
-        //     "type": "shell",
-        //     "command": "dotnet publish ${workspaceFolder}/test-project",
-        //     "problemMatcher": "$tsc"
-        // },
+        {
+            "label": "publish",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "publish",
+                "${workspaceFolder}/src/Rest/Weather.Rest.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
         {
             "label": "watch",
-            "type": "shell",
-            "command": "dotnet watch -p ${workspaceFolder}/src/Rest run",
-            "problemMatcher": "$tsc"
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "watch",
+                "run",
+                "${workspaceFolder}/src/Rest/Weather.Rest.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
         }
     ]
 }
