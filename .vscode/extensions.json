@@ -1,6 +1,5 @@
 {
     "recommendations": [
-        // Remote - Container
         "ms-azuretools.vscode-docker",
         "ms-vscode-remote.remote-containers",
     ],

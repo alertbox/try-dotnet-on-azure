@@ -1,46 +1,52 @@
 {
-	"name": ".NET 5.0+",
-	"build": {
-		"dockerfile": "Dockerfile",
-		// Options
-		"args": { 
-			// Update 'VARIANT' to pick a .NET version: latest, 5.0
-			// See full tag list here https://hub.docker.com/_/microsoft-dotnet-sdk/
-			"VARIANT": "latest",
-			"INSTALL_NODE": "false",
-			"NODE_VERSION": "lts/*",
-			"INSTALL_AZURE_CLI": "false"
-		}
-	},
+	"name": "C# (.NET)",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspace",
+	
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
-		"terminal.integrated.shell.linux": "/bin/bash"
+		"razor.disabled": true,
+		"terminal.integrated.shell.linux": "/bin/zsh",
+		"mssql.connections": [
+			{
+				"server": "localhost,1433",
+				"database": "",
+				"authenticationType": "SqlLogin",
+				"user": "sa",
+				"password": "Password@1",
+				"emptyPasswordInput": false,
+				"savePassword": false,
+				"profileName": "mssql-container",
+			},
+		],
 	},
+
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
-		// .NET
 		"ms-dotnettools.csharp",
 		"ms-dotnettools.vscode-dotnet-runtime",
-		// Azure
-		// "ms-vscode.azurecli",
-		// "ms-azuretools.vscode-azurefunctions",
-		// Node.js
-		// "christian-kohler.npm-intellisense",
-		// "eg2.vscode-npm-script",
-		// "dbaeumer.vscode-eslint",
-		// "redhat.vscode-yaml",
-		// Web
-		"msjsdiag.debugger-for-chrome",
+		"ms-azuretools.vscode-docker",
+		"ms-vscode.azurecli",
 		"humao.rest-client",
-		// Editor
-		"editorconfig.editorconfig",
-		"coenraads.bracket-pair-colorizer-2",
-		"esbenp.prettier-vscode",
+
+		"ms-mssql.mssql",
+
+		"christian-kohler.npm-intellisense",
+		"eg2.vscode-npm-script",
+		"dbaeumer.vscode-eslint",
+
 		"visualstudioexptteam.vscodeintellicode",
+		"ms-vscode.wordcount",
+		"editorconfig.editorconfig",
+		"esbenp.prettier-vscode",
+		"streetsidesoftware.code-spell-checker",
 		"redhat.fabric8-analytics",
+		"redhat.vscode-yaml",
 	],
+
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [5000, 5001],
+	"forwardPorts": [5000, 5001, 1433],
 
 	// [Optional] To reuse of your local HTTPS dev cert:
 	//
@@ -66,10 +72,8 @@
 	//      "mounts": [ "source=${env:HOME}${env:USERPROFILE}/.aspnet/https,target=/home/vscode/.aspnet/https,type=bind" ],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "dotnet restore",
+	"postCreateCommand": "dotnet restore && bash .devcontainer/mssql/postCreateCommand.sh 'Password@1' './bin/Debug/' './.devcontainer/mssql/'",
 
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	// "remoteUser": "vscode",
-	// Uncomment to indicates whether VS Code should stop the containers when the VS Code window is closed / shut down. Values are "none" and "stopCompose" (default).
-	// "shutdownAction": "none",
+	"remoteUser": "vscode"
 }
