@@ -1,41 +1,26 @@
 # [Choice] .NET version: 5.0, 3.1, 2.1
-ARG VARIANT="3.1"
-FROM mcr.microsoft.com/dotnet/sdk:${VARIANT}
-
-# [Option] Install zsh
-ARG INSTALL_ZSH="true"
-# [Option] Upgrade OS packages to their latest versions
-ARG UPGRADE_PACKAGES="true"
-
-# Install needed packages and setup non-root user. Use a separate RUN statement to add your own dependencies.
-ARG USERNAME=vscode
-ARG USER_UID=1000
-ARG USER_GID=${USER_UID}
-COPY library-scripts/common-debian.sh /tmp/library-scripts/
-RUN bash /tmp/library-scripts/common-debian.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" \
-    && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts
+ARG VARIANT=3.1
+FROM mcr.microsoft.com/vscode/devcontainers/dotnet:0-${VARIANT}
 
 # [Option] Install Node.js
 ARG INSTALL_NODE="true"
-ARG NODE_VERSION="12"
-ENV NVM_DIR=/usr/local/share/nvm
-ENV NVM_SYMLINK_CURRENT=true \
-    PATH=${NVM_DIR}/current/bin:${PATH}
-COPY library-scripts/node-debian.sh /tmp/library-scripts/
-RUN if [ "${INSTALL_NODE}" = "true" ]; then bash /tmp/library-scripts/node-debian.sh "${NVM_DIR}" "${NODE_VERSION}" "${USERNAME}"; fi \
-    && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts
+ARG NODE_VERSION="lts/*"
+RUN if [ "${INSTALL_NODE}" = "true" ]; then su vscode -c "umask 0002 && . /usr/local/share/nvm/nvm.sh && nvm install ${NODE_VERSION} 2>&1"; fi
 
 # [Option] Install Azure CLI
-ARG INSTALL_AZURE_CLI="true"
-COPY library-scripts/azcli-debian.sh /tmp/library-scripts/
-RUN if [ "${INSTALL_AZURE_CLI}" = "true" ]; then bash /tmp/library-scripts/azcli-debian.sh; fi \
+ARG INSTALL_AZURE_CLI="false"
+RUN if [ "$INSTALL_AZURE_CLI" = "true" ]; then apt-get update && curl -ssL https://raw.githubusercontent.com/microsoft/vscode-dev-containers/master/script-library/azcli-debian.sh -o /tmp/azcli-debian.sh && /bin/bash /tmp/azcli-debian.sh; fi \
+    && apt-get clean -y && rm -rf /tmp/azcli-debian.sh
+
+# Install SQL Tools: SQLPackage and sqlcmd
+COPY mssql/installSQLtools.sh installSQLtools.sh
+RUN bash ./installSQLtools.sh \
     && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts
 
-# [Option] Install SQL Tools: SQLPackage and sqlcmd
-COPY mssql/installSQLtools.sh installSQLtools.sh
-ARG INSTALL_MSSQL="true"
-RUN if [ "${INSTALL_MSSQL}" = "true" ]; then bash ./installSQLtools.sh; fi \
-    && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts
+# Update args in docker-compose.yaml to set the UID/GID of the "vscode" user.
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+RUN if [ "$USER_GID" != "1000" ] || [ "$USER_UID" != "1000" ]; then groupmod --gid $USER_GID vscode && usermod --uid $USER_UID --gid $USER_GID vscode; fi
 
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
