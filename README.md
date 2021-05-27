@@ -1,6 +1,8 @@
-# Try out Skol ASP.NET Web API with CQRS pattern (C#)
+# Try out the minimal API with Mediatr (C#)
 
-This repository demonstrates developing CQRS pattern for ASP.NET Web API with .NET 6.0 using VS Code and  Development Containers.
+This Cocktail :cocktail: ordering backend API code demonstrates developing a minimal API with CQRS pattern for ASP.NET Web API on .NET 6.0 preview using VS Code and Development Containers.
+
+> Originally, **Skol** is the Swedish way of saying :beers: Cheers! 
 
 ### What's included:
 - Uses .NET 6.0 development container found in @kosalanuwan/devcontainers
@@ -18,8 +20,8 @@ If you want to fork or clone the repo locally, then open up the source code in a
 
 ```zsh
 #!/bin/zsh
-gh repo clone kosalanuwan/vscode-remote-try-skol-webapi
-cd vscode-remote-try-skol-webapi
+gh repo clone kosalanuwan/vscode-remote-try-skol-minimal-api
+cd vscode-remote-try-skol-minimal-api
 ```
 
 With VS Code:
