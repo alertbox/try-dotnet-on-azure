@@ -1,0 +1,52 @@
+
+GET https://localhost:5001/api/v1/cocktails HTTP/1.1
+
+### 
+
+POST https://localhost:5001/api/v1/cocktails/code/b052/rebrand HTTP/1.1
+Content-Type: application/json
+
+{
+    "originCode": "b052",
+    "code": "b007",
+    "displayName": "Last Words",
+    "value": 7
+}
+
+### 
+
+POST https://localhost:5001/api/v1/cocktails/code/b052/rebrand HTTP/1.1
+Content-Type: application/json
+
+{
+    "originCode": "b052",
+    "code": "p071",
+    "displayName": "Pimm's Cup",
+    "value": 4.5,
+    "seasonal": true,
+    "discontinueOrigin": true
+}
+
+###
+
+DELETE https://localhost:5001/api/v1/cocktails/code/h002/discontinue HTTP/1.1
+Content-Type: application/json
+
+###
+
+POST https://localhost:5001/api/v1/orders HTTP/1.1
+Content-Type: application/json
+
+{
+    "discount": 4.5,
+    "items": [
+        { "code": "c043", "quantity": 2 },
+        { "code": "b007", "quantity": 1 },
+        { "code": "f075", "quantity": 2, "discount": 2 }
+    ]
+}
+
+###
+
+GET https://localhost:5001/api/v1/orders/id/1 HTTP/1.1
+
