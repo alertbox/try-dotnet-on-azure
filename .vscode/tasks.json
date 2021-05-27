@@ -39,7 +39,7 @@
             "label": "watch",
             "command": "dotnet",
             "type": "process",
-            "args": ["watch", "--project", "${workspaceFolder}/Rest//Stocksly.Rest.Services.csproj", "run"],
+            "args": ["watch", "--project", "${workspaceFolder}/Rest//Skol.Rest.Services.csproj", "run"],
             "problemMatcher": "$msCompile",
             "isBackground": true
         }

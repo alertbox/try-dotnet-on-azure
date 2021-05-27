@@ -1,55 +1,31 @@
-namespace Stocksly.Infrastructure
+using System.Linq;
+using System.Reflection;
+using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Skol.Application;
+using Skol.Domain;
+using Skol.Domain.Models;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
+using System.Collections.Generic;
+
+namespace Skol.Infrastructure
 {
-    using Microsoft.EntityFrameworkCore;
-    using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using Stocksly.Domain.Models;
-
-    public class ProductConfiguration : IEntityTypeConfiguration<Product>
+    public class OrderConfiguration : IEntityTypeConfiguration<Order>
     {
-        public void Configure(EntityTypeBuilder<Product> builder)
+        public void Configure(EntityTypeBuilder<Order> builder)
         {
-            builder.HasKey(p => p.Id);
-            builder.HasOne(p => p.Supplier);
+            builder.Ignore(o => o.StateChanges);
         }
     }
 
-    public class SupplierConfiguration : IEntityTypeConfiguration<Supplier>
+    public class CocktailConfiguration : IEntityTypeConfiguration<Cocktail>
     {
-        public void Configure(EntityTypeBuilder<Supplier> builder)
+        public void Configure(EntityTypeBuilder<Cocktail> builder)
         {
-            builder.HasKey(s => s.Id);
-        }
-    }
-
-    public class PurchaseOrderConfiguration : IEntityTypeConfiguration<PurchaseOrder>
-    {
-        public void Configure(EntityTypeBuilder<PurchaseOrder> builder)
-        {
-            builder.Ignore(po => po.StateChanges);
-
-            builder.HasKey(po => po.Id);
-
-            builder.Property(po => po.Count);
-            builder.Property(po => po.Total);
-
-            builder.Property(po => po.OrderedItems);
-            builder
-                .HasMany(po => po.OrderedItems).WithOne(poi => poi.PurchaseOrder)
-                .IsRequired();
-
-            builder.HasOne(po => po.Supplier);
-        }
-    }
-
-    public class PurchaseOrderItemConfiguration : IEntityTypeConfiguration<PurchaseOrderItem>
-    {
-        public void Configure(EntityTypeBuilder<PurchaseOrderItem> builder)
-        {
-            builder.HasKey(poi => poi.Id);
-
-            builder.Property(poi => poi.Total);
-
-            builder.HasOne(poi => poi.Product);
+            builder.Ignore(c => c.StateChanges)
+                   .HasQueryFilter(c => !c.Discontinued);
         }
     }
 }

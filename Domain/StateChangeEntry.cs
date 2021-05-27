@@ -1,10 +1,10 @@
-namespace Stocksly.Domain
-{
-    using System;
+using System;
 
+namespace Skol.Domain
+{
     public abstract class StateChangeEntry
     {
-        public DateTimeOffset OccurredTime => DateTime.UtcNow;
+        public DateTimeOffset OccurredAsOf => DateTime.UtcNow;
         public bool Published { get; set; }
     }
 }

@@ -1,11 +1,11 @@
-namespace Stocksly.Infrastructure
-{
-    using System;
-    using System.Threading.Tasks;
-    using MediatR;
-    using Stocksly.Application;
-    using Stocksly.Domain;
+using System;
+using System.Threading.Tasks;
+using MediatR;
+using Skol.Application;
+using Skol.Domain;
 
+namespace Skol.Infrastructure
+{
     public class StateChangeHandler : IStateChangeHandler
     {
         private readonly Type defaultShape = typeof(StateChangeNotification<>);
