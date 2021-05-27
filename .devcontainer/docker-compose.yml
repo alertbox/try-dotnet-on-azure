@@ -8,7 +8,7 @@ services:
       args:
         # [Choice] Update 'VARIANT' to pick a .NET version
         # https://mcr.microsoft.com/v2/dotnet/sdk/tags/list
-        VARIANT: 6.0.100-preview.3
+        VARIANT: 6.0
         # Options
         # INSTALL_ZSH: "true"
         # UPGRADE_PACKAGES: "true"
