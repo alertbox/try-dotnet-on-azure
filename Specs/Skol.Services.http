@@ -1,9 +1,5 @@
-
-// Host name and the port number
 @hostname = localhost:5001
-// API version of the endpoint
 @version = v1
-/// Base path with the version
 @base_url = https://{{hostname}}/api/{{version}}
 
 ###
