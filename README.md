@@ -16,6 +16,13 @@ This [Cocktails][cocktails-list] :cocktail: ordering backend API code demonstrat
 - Uses REST Client extension for trying out the rest-endpoints from VS Code
 - Configured to build and run from the VS Code tasks
 
+## Todo
+
+- [X] Use of Mediatr Behavior for post process
+- [ ] Use of Global imports
+- [ ] Use of Web Application hosting for API.NET Web API
+- [ ] Use of Minimal API routes with versioning
+
 ## Quick Start
 If you want to fork or clone the repo locally, then open up the source code in a remote container.
 
@@ -35,7 +42,18 @@ dotnet build
 dotnet watch --project Services/Skol.Services.csproj run
 ```
 
+### Troubleshooting
+Unable to configure HTTPS endpoint. No server certificate was specified, and the default developer certificate could not be found.
+```zsh
+#!/bin/zsh
+# Clean all HTTP developer certs
+dotnet dev-certs https --clean
+# Trust the cert on the current platform
+dotnet dev-certs https -t
+```
+
 ## Useful Commands
+
 
 ```zsh
 #!/bin/zsh
