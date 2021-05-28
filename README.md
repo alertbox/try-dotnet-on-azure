@@ -1,6 +1,6 @@
-# Try out the minimal API with Mediatr (C#)
+# Try out the minimal API with .NET 6.0 (preview) (C#)
 
-This Cocktail :cocktail: ordering backend API code demonstrates developing a minimal API with CQRS pattern for ASP.NET Web API on .NET 6.0 preview using VS Code and Development Containers.
+This [Cocktails][cocktails-list] :cocktail: ordering backend API code demonstrates developing a minimal API with CQRS pattern for ASP.NET Web API on .NET 6.0 preview using VS Code and Development Containers.
 
 > Originally, **Skol** is the Swedish way of saying :beers: Cheers! 
 
@@ -9,8 +9,8 @@ This Cocktail :cocktail: ordering backend API code demonstrates developing a min
 - Uses Top-level Class, Minimal Hosting, Record types, et al.
 - Uses ASP.NET Core for the RESTful Web API
 - Uses API Versioning, REST Convensions, et al.
-- Uses EF Core InMemory for persisting data
-- Uses DbContext for the unit of work and repository pattern
+- Uses Seed Data for EF Core InMemory database
+- Uses DbContext for the Unit of Work and repository pattern
 - Uses Mediatr package for Publisher/Subscriber pattern
 - Uses Onion Architecture for solution structure and layers
 - Uses REST Client extension for trying out the rest-endpoints from VS Code
@@ -21,6 +21,7 @@ If you want to fork or clone the repo locally, then open up the source code in a
 
 ```zsh
 #!/bin/zsh
+# Clone with GitHub CLI
 gh repo clone kosalanuwan/vscode-remote-try-skol-minimal-api
 cd vscode-remote-try-skol-minimal-api
 ```
@@ -28,6 +29,7 @@ cd vscode-remote-try-skol-minimal-api
 With VS Code:
 ```zsh
 #!/bin/zsh
+# Run in watch mode
 dotnet restore
 dotnet build
 dotnet watch --project Services/Skol.Services.csproj run
@@ -86,6 +88,7 @@ dotnet add package Microsoft.AspnetCore.Mvc.Versioning --prerelease
 - [The VS Code Remote - Containers docs][vscode-remote-docs] is a good source to learn more about `.devcontainer.json` configuration options and its usage.
 - [See .NET Core CLI page][dotnet-core-cli-docs] to learn the full-blown `dotnet` options.
 
+[cocktails-list]: https://www.thespruceeats.com/a-to-z-cocktail-recipes-3962886
 [devcontainers-repo]: https://github.com/microsoft/vscode-dev-containers
 [dotnet-sdk-docker-image]: https://hub.docker.com/_/microsoft-dotnet-sdk/
 [azure-cli-docs]: https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli
