@@ -10,7 +10,7 @@ using Skol.Application.Cocktails.Commands;
 
 namespace Skol.Services.Controllers
 {
-    // [Route("api")]
+    [Route("api/cocktails")]
     [Route("api/v{version:apiVersion}/cocktails")]
     [ApiController]
     [ApiVersion("1.0")]

@@ -10,7 +10,7 @@ using System.Net;
 
 namespace Skol.Services.Controllers
 {
-    // [Route("api/purchasing")]
+    [Route("api/orders")]
     [Route("api/v{version:apiVersion}/orders")]
     [ApiController]
     [ApiVersion("1.0")]
