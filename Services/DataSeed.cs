@@ -1,3 +1,9 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Skol.Application;
+using Skol.Domain.Models;
+using System;
+
 namespace Skol.Services.Seed
 {
     public static class DbContextDataSeed

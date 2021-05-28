@@ -5,10 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Mvc;
-using Skol.Application;
-using Skol.Domain.Models;
 using Skol.Services.Seed;
-using System;
 
 [assembly: ApiConventionType(typeof(DefaultApiConventions))]
 
