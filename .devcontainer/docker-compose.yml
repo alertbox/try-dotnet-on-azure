@@ -20,6 +20,8 @@ services:
         # USER_GID: 1000
         
     environment:
+      ASPNETCORE_URLS: "https://+:5001;http://+:5000"
+      ASPNETCORE_ENVIRONMENT: "Development"
       DOTNET_CLI_TELEMETRY_OPTOUT: 1
       DOTNET_NOLOGO: 1
 

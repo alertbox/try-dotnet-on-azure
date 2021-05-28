@@ -1,4 +1,7 @@
 #!/bin/zsh
+echo "Trust the cert on the current platform"
+dotnet dev-certs https --clean
+dotnet dev-certs https -t
 
 echo 'Prepare SQL database.'
 # parameters: $1=SA password, $2=dacpac path, $3=sql script(s) path
