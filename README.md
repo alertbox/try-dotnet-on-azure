@@ -1,4 +1,4 @@
-# Try out the minimal API with .NET 6.0 (preview) (C#)
+# Try out the minimal API with .NET 6.0 (preview)
 
 This [Cocktails][cocktails-list] :cocktail: ordering backend API code demonstrates developing a minimal API with CQRS pattern for ASP.NET Web API on .NET 6.0 preview using VS Code and Development Containers.
 
