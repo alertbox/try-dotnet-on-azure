@@ -8,7 +8,7 @@ using Skol.Application.Orders.Queries;
 using Skol.Application.Orders.Commands;
 using System.Net;
 
-namespace Skol.Rest.Services.Controllers
+namespace Skol.Services.Controllers
 {
     // [Route("api/purchasing")]
     [Route("api/v{version:apiVersion}/orders")]

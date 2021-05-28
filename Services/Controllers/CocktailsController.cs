@@ -8,7 +8,7 @@ using Skol.Application.Cocktails.Queries;
 using System.Net;
 using Skol.Application.Cocktails.Commands;
 
-namespace Skol.Rest.Services.Controllers
+namespace Skol.Services.Controllers
 {
     // [Route("api")]
     [Route("api/v{version:apiVersion}/cocktails")]

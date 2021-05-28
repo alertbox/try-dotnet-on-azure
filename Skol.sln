@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skol.Application", "Applica
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skol.Infrastructure", "Infrastructure\Skol.Infrastructure.csproj", "{D315C140-6C12-4949-BC6B-9FF2E7B1A1C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skol.Rest.Services", "Rest\Skol.Rest.Services.csproj", "{C0673D6E-F666-4638-887D-681A5B383D0D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skol.Rest.Services", "Services\Skol.Services.csproj", "{C0673D6E-F666-4638-887D-681A5B383D0D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
