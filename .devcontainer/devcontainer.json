@@ -1,62 +1,61 @@
 {
-	"name": "C# (.NET) and MS SQL",
-	"dockerComposeFile": "docker-compose.yml",
-	"service": "app",
-	"workspaceFolder": "/workspace",
+    "name": "C# (.NET) and MS SQL",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "app",
+    "workspaceFolder": "/workspace",
 
-	// Set *default* container specific settings.json values on container create.
-	"settings": {
-		"razor.disabled": true,
-		"terminal.integrated.shell.linux": "/usr/bin/zsh",
-	},
+    // Set *default* container specific settings.json values on container create.
+    "settings": {
+        "razor.disabled": true,
+        "terminal.integrated.shell.linux": "/bin/zsh"
+    },
 
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		"ms-dotnettools.csharp",
-		"ms-dotnettools.vscode-dotnet-runtime",
-		"ms-azuretools.vscode-docker",
-		"ms-vscode.azurecli",
-		"humao.rest-client",
+    // Add the IDs of extensions you want installed when the container is created.
+    "extensions": [
+        "ms-dotnettools.csharp",
+        "ms-dotnettools.vscode-dotnet-runtime",
+        "ms-azuretools.vscode-docker",
+        "ms-vscode.azurecli",
+        "humao.rest-client",
 
-		"christian-kohler.npm-intellisense",
-		"eg2.vscode-npm-script",
-		"dbaeumer.vscode-eslint",
+        "christian-kohler.npm-intellisense",
+        "eg2.vscode-npm-script",
+        "dbaeumer.vscode-eslint",
 
-		"visualstudioexptteam.vscodeintellicode",
-		"ms-vscode.wordcount",
-		"editorconfig.editorconfig",
-		"esbenp.prettier-vscode",
-		"streetsidesoftware.code-spell-checker",
-		"redhat.fabric8-analytics",
-		"redhat.vscode-yaml",
-		"bierner.github-markdown-preview",
-	],
+        "visualstudioexptteam.vscodeintellicode",
+        "ms-vscode.wordcount",
+        "editorconfig.editorconfig",
+        "esbenp.prettier-vscode",
+        "streetsidesoftware.code-spell-checker",
+        "redhat.fabric8-analytics",
+        "redhat.vscode-yaml",
+        "bierner.github-markdown-preview"
+    ],
 
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [5000, 5001, 1433],
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    "forwardPorts": [5000, 5001],
 
-	// [Optional] To reuse of your local HTTPS dev cert:
-	//
-	// 1. Export it locally using this command:
-	//    * Windows PowerShell:
-	//        dotnet dev-certs https --trust; dotnet dev-certs https -ep "$env:USERPROFILE/.aspnet/https/aspnetapp.pfx" -p "SecurePwdGoesHere"
-	//    * macOS/Linux terminal:
-	//        dotnet dev-certs https --trust; dotnet dev-certs https -ep "${HOME}/.aspnet/https/aspnetapp.pfx" -p "SecurePwdGoesHere"
-	// 
-	// 2. Uncomment these 'remoteEnv' lines:
-	//    "remoteEnv": {
-	// 	      "ASPNETCORE_Kestrel__Certificates__Default__Password": "SecurePwdGoesHere",
-	//        "ASPNETCORE_Kestrel__Certificates__Default__Path": "/home/vscode/.aspnet/https/aspnetapp.pfx",
-	//    },
-	//
-	// 3. Next, copy your certificate into the container:
-	//      1. Start the container
-	//      2. Drag ~/.aspnet/https/aspnetapp.pfx into the root of the file explorer
-	//      3. Open a terminal in VS Code and run "mkdir -p /home/vscode/.aspnet/https && mv aspnetapp.pfx /home/vscode/.aspnet/https"
+    // [Optional] To reuse of your local HTTPS dev cert:
+    //
+    // 1. Export it locally using this command:
+    //    * Windows PowerShell:
+    //        dotnet dev-certs https --trust; dotnet dev-certs https -ep "$env:USERPROFILE/.aspnet/https/aspnetapp.pfx" -p "SecurePwdGoesHere"
+    //    * macOS/Linux terminal:
+    //        dotnet dev-certs https --trust; dotnet dev-certs https -ep "${HOME}/.aspnet/https/aspnetapp.pfx" -p "SecurePwdGoesHere"
+    //
+    // 2. Uncomment these 'remoteEnv' lines:
+    //    "remoteEnv": {
+    // 	      "ASPNETCORE_Kestrel__Certificates__Default__Password": "SecurePwdGoesHere",
+    //        "ASPNETCORE_Kestrel__Certificates__Default__Path": "/home/vscode/.aspnet/https/aspnetapp.pfx",
+    //    },
+    //
+    // 3. Next, copy your certificate into the container:
+    //      1. Start the container
+    //      2. Drag ~/.aspnet/https/aspnetapp.pfx into the root of the file explorer
+    //      3. Open a terminal in VS Code and run "mkdir -p /home/vscode/.aspnet/https && mv aspnetapp.pfx /home/vscode/.aspnet/https"
 
-	// postCreateCommand.sh parameters: $1=SA password, $2=dacpac path, $3=sql script(s) path
-	"postCreateCommand": "zsh .devcontainer/post-create.zsh",
-	// Uncomment to indicates whether VS Code should stop the containers when the VS Code window is closed / shut down. Values are "none" and "stopCompose" (default).
-	"shutdownAction": "stopCompose"
-
+    // postCreateCommand.sh parameters: $1=SA password, $2=dacpac path, $3=sql script(s) path
+    "postCreateCommand": "zsh .devcontainer/post-create.zsh",
+    // Uncomment to indicates whether VS Code should stop the containers when the VS Code window is closed / shut down. Values are "none" and "stopCompose" (default).
+    "shutdownAction": "stopCompose"
 }
