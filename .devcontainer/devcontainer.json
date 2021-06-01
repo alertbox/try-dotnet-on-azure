@@ -8,18 +8,6 @@
 	"settings": {
 		"razor.disabled": true,
 		"terminal.integrated.shell.linux": "/usr/bin/zsh",
-		"mssql.connections": [
-			{
-				"server": "localhost,1433",
-				"database": "",
-				"authenticationType": "SqlLogin",
-				"user": "sa",
-				"password": "P@ssw0rd",
-				"emptyPasswordInput": false,
-				"savePassword": false,
-				"profileName": "mssql-container"
-			}
-		]
 	},
 
 	// Add the IDs of extensions you want installed when the container is created.
@@ -29,8 +17,6 @@
 		"ms-azuretools.vscode-docker",
 		"ms-vscode.azurecli",
 		"humao.rest-client",
-
-		"ms-mssql.mssql",
 
 		"christian-kohler.npm-intellisense",
 		"eg2.vscode-npm-script",

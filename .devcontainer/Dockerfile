@@ -33,11 +33,6 @@ RUN if [ "$INSTALL_AZURE_CLI" = "true" ]; then apt-get update && curl -ssL https
     fi \
     && apt-get clean -y && rm -rf /tmp/azcli-debian.sh
 
-# Install SQL Tools: SQLPackage and sqlcmd
-COPY mssql/installSQLtools.sh installSQLtools.sh
-RUN bash ./installSQLtools.sh \
-    && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts
-
 # Update args in docker-compose.yaml to set the UID/GID of the "vscode" user.
 RUN if [ "$USER_GID" != "1000" ] || [ "$USER_UID" != "1000" ]; then groupmod --gid $USER_GID vscode && usermod --uid $USER_UID --gid $USER_GID vscode; fi
 
