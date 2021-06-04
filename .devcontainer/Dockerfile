@@ -11,7 +11,7 @@ ARG UPGRADE_PACKAGES="true"
 ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=${USER_UID}
-RUN apt-get update && curl -ssL https://raw.githubusercontent.com/microsoft/vscode-dev-containers/master/script-library/common-debian.sh -o /tmp/common-debian.sh \
+RUN apt-get update && curl -ssL https://raw.githubusercontent.com/microsoft/vscode-dev-containers/main/script-library/common-debian.sh -o /tmp/common-debian.sh \
     && /bin/bash /tmp/common-debian.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" "true" "true" \
     && apt-get clean -y && rm -rf /tmp/common-debian.sh
 
@@ -21,14 +21,14 @@ ARG NODE_VERSION="lts/*"
 ENV NVM_DIR=/usr/local/share/nvm
 ENV NVM_SYMLINK_CURRENT=true \
     PATH=${NVM_DIR}/current/bin:${PATH}
-RUN if [ "$INSTALL_NODE" = "true" ]; then apt-get update && curl -ssL https://raw.githubusercontent.com/microsoft/vscode-dev-containers/master/script-library/node-debian.sh -o /tmp/node-debian.sh \
+RUN if [ "$INSTALL_NODE" = "true" ]; then apt-get update && curl -ssL https://raw.githubusercontent.com/microsoft/vscode-dev-containers/main/script-library/node-debian.sh -o /tmp/node-debian.sh \
     && /bin/bash /tmp/node-debian.sh "${NVM_DIR}" "${NODE_VERSION}" "${USERNAME}"; \
     fi \
     && apt-get clean -y && rm -rf /tmp/node-debian.sh
 
 # [Option] Install Azure CLI
 ARG INSTALL_AZURE_CLI="true"
-RUN if [ "$INSTALL_AZURE_CLI" = "true" ]; then apt-get update && curl -ssL https://raw.githubusercontent.com/microsoft/vscode-dev-containers/master/script-library/azcli-debian.sh -o /tmp/azcli-debian.sh \
+RUN if [ "$INSTALL_AZURE_CLI" = "true" ]; then apt-get update && curl -ssL https://raw.githubusercontent.com/microsoft/vscode-dev-containers/main/script-library/azcli-debian.sh -o /tmp/azcli-debian.sh \
     && /bin/bash /tmp/azcli-debian.sh; \
     fi \
     && apt-get clean -y && rm -rf /tmp/azcli-debian.sh
