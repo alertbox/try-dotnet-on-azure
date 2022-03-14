@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Skol.Domain.Models;
 using MediatR;
 

@@ -4,7 +4,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Skol.Domain;
 using Skol.Domain.Models;
 
 namespace Skol.Application.Orders.Queries

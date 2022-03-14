@@ -6,8 +6,6 @@ using Microsoft.EntityFrameworkCore;
 using Skol.Application;
 using Skol.Domain;
 using Skol.Domain.Models;
-using System;
-using System.Collections.Generic;
 
 namespace Skol.Infrastructure
 {

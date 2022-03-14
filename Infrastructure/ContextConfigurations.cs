@@ -1,14 +1,6 @@
-using System.Linq;
-using System.Reflection;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Skol.Application;
-using Skol.Domain;
 using Skol.Domain.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
 
 namespace Skol.Infrastructure
 {
