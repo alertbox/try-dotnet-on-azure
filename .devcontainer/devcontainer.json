@@ -1,34 +1,57 @@
 {
 	"name": "C# (.NET)",
 	"dockerComposeFile": "docker-compose.yml",
-	"service": "app",
+	"service": "api",
 	"workspaceFolder": "/workspace",
 
+	"features": {
+		"common": {
+			"username": "automatic",
+			"uid": "automatic",
+			"gid": "automatic",
+			"installZsh": true,
+			"upgradePackages": true,
+		},
+		"github-cli": "latest",
+		// "node": {
+		// 	"version": "lts",
+		// 	"nodeGypDependencies": true
+		// },
+		"azure-cli": "latest"
+	},
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
+		"files.associations": {
+			"**/ci/*.yml": "azure-pipelines"
+		},
+		"omnisharp.enableAsyncCompletion": true,
 		"omnisharp.enableImportCompletion": true,
 		"omnisharp.enableRoslynAnalyzers": true,
     	"omnisharp.organizeImportsOnFormat": true,
-		"omnisharp.useModernNet": true,
 		"omnisharp.useEditorFormattingSettings": true,
+		"omnisharp.useModernNet": true,
 		"razor.disabled": true,
-		"terminal.integrated.defaultProfile.linux": "zsh"
+		"terminal.integrated.defaultProfile.linux": "zsh",
 	},
 
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
+		"visualstudioexptteam.vscodeintellicode",
+		"VisualStudioExptTeam.vscodeintellicode-completions",
 		"ms-dotnettools.csharp",
 		"ms-dotnettools.vscode-dotnet-runtime",
-		"ms-azuretools.vscode-docker",
-		"ms-vscode.azurecli",
 		"ms-edgedevtools.vscode-edge-devtools",
+		
 		"humao.rest-client",
+		
+		"ms-vscode.azurecli",
+		"ms-azure-devops.azure-pipelines",
+		"ms-azuretools.vscode-azureresourcegroups",
+		"ms-azuretools.vscode-azureappservice",
+		"ms-azuretools.vscode-azurevirtualmachines",
 
-		"christian-kohler.npm-intellisense",
-		"eg2.vscode-npm-script",
-		"dbaeumer.vscode-eslint",
+		"ms-dotnettools.dotnet-interactive-vscode",
 
-		"visualstudioexptteam.vscodeintellicode",
 		"ms-vscode.wordcount",
 		"editorconfig.editorconfig",
 		"esbenp.prettier-vscode",
