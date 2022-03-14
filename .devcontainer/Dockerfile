@@ -1,7 +1,8 @@
-# [Choice] .NET version: 6.0, 5.0, 3.1
+# [Choice] .NET version: 6.0-bullseye, 5.0-bullseye, 3.1-bullseye, 6.0-focal, 5.0-focal, 3.1-focal
 # https://mcr.microsoft.com/v2/dotnet/sdk/tags/list
-ARG VARIANT="5.0"
-FROM mcr.microsoft.com/dotnet/sdk:${VARIANT}-focal
+ARG VARIANT=6.0-bullseye-slim
+FROM mcr.microsoft.com/dotnet/sdk:${VARIANT}
+
 
 # [Option] Install zsh
 ARG INSTALL_ZSH="true"
@@ -15,26 +16,15 @@ RUN apt-get update && curl -ssL https://raw.githubusercontent.com/microsoft/vsco
     && /bin/bash /tmp/common-debian.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" "true" "true" \
     && apt-get clean -y && rm -rf /tmp/common-debian.sh
 
-# [Option] Install Node.js
-ARG INSTALL_NODE="true"
-ARG NODE_VERSION="lts/*"
+# [Choice] Node.js version: none, lts/*, 16, 14, 12, 10
+ARG NODE_VERSION="none"
 ENV NVM_DIR=/usr/local/share/nvm
 ENV NVM_SYMLINK_CURRENT=true \
     PATH=${NVM_DIR}/current/bin:${PATH}
-RUN if [ "$INSTALL_NODE" = "true" ]; then apt-get update && curl -ssL https://raw.githubusercontent.com/microsoft/vscode-dev-containers/main/script-library/node-debian.sh -o /tmp/node-debian.sh \
+RUN if [ "$NODE_VERSION" != "none" ]; then apt-get update && curl -ssL https://raw.githubusercontent.com/microsoft/vscode-dev-containers/main/script-library/node-debian.sh -o /tmp/node-debian.sh \
     && /bin/bash /tmp/node-debian.sh "${NVM_DIR}" "${NODE_VERSION}" "${USERNAME}"; \
     fi \
     && apt-get clean -y && rm -rf /tmp/node-debian.sh
-
-# [Option] Install Azure CLI
-ARG INSTALL_AZURE_CLI="true"
-RUN if [ "$INSTALL_AZURE_CLI" = "true" ]; then apt-get update && curl -ssL https://raw.githubusercontent.com/microsoft/vscode-dev-containers/main/script-library/azcli-debian.sh -o /tmp/azcli-debian.sh \
-    && /bin/bash /tmp/azcli-debian.sh; \
-    fi \
-    && apt-get clean -y && rm -rf /tmp/azcli-debian.sh
-
-# Update args in docker-compose.yaml to set the UID/GID of the "vscode" user.
-RUN if [ "$USER_GID" != "1000" ] || [ "$USER_UID" != "1000" ]; then groupmod --gid $USER_GID vscode && usermod --uid $USER_UID --gid $USER_GID vscode; fi
 
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \

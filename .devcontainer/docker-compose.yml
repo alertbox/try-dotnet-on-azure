@@ -7,17 +7,14 @@ services:
       dockerfile: Dockerfile
       args:
         # [Choice] Update 'VARIANT' to pick a .NET version
+        # Update 'VARIANT' to pick a .NET Core version: 3.1, 5.0, 6.0
+        # Append -bullseye or -focal to pin to an OS version.
         # https://mcr.microsoft.com/v2/dotnet/sdk/tags/list
-        VARIANT: 6.0
+        VARIANT: "6.0"
         # Options
         # INSTALL_ZSH: "true"
         # UPGRADE_PACKAGES: "true"
-        INSTALL_NODE: "false"
-        # NODE_VERSION: "14"
-        INSTALL_AZURE_CLI: "false"
-        # On Linux, you may need to update USER_UID and USER_GID below if not your local UID is not 1000.
-        # USER_UID: 1000
-        # USER_GID: 1000
+        NODE_VERSION: "lts/*"
         
     environment:
       ASPNETCORE_URLS: "https://+:5001;http://+:5000"

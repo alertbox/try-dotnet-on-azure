@@ -8,5 +8,5 @@ dotnet dev-certs https -t
 if [ -f ./*.sln ]; 
 then
     echo '.NET solution file found.'
-    dotnet restore
+    dotnet restore -f
 fi

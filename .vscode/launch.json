@@ -5,10 +5,12 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Attach to .NET (web)",
+            "name": ".NET Launch (web)",
             "type": "coreclr",
-            "request": "attach",
-            "processId": "${command:pickProcess}"
+            "request": "launch",
+            "program": "dotnet",
+            "args": ["run"],
+            "cwd": "${workspaceFolder}/Services",
         }
     ]
 }
