@@ -112,7 +112,7 @@ With VS Code:
 [ms-docs-dotnet-cli]: https://docs.microsoft.com/en-us/dotnet/core/tools/
 [ms-docs-azure-cli]: https://learn.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest
 [ms-docs-azure-devops-cli]: https://learn.microsoft.com/en-us/azure/devops/cli/?view=azure-devops
-[dotnet-docker-image]: https://hub.docker.com/_/microsoft-dotnet-sdk/
+[dotnet-docker-images]: https://hub.docker.com/_/microsoft-dotnet-sdk/
 
 
 
