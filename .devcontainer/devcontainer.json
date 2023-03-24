@@ -1,97 +1,131 @@
 {
-	"name": "C# (.NET)",
-	"dockerComposeFile": "docker-compose.yml",
-	"service": "api",
-	"workspaceFolder": "/workspace",
+	"name": "dotnet",
 
-	"features": {
-		"common": {
-			"username": "automatic",
-			"uid": "automatic",
-			"gid": "automatic",
-			"installZsh": true,
-			"upgradePackages": true,
-		},
-		"github-cli": "latest",
-		// "node": {
-		// 	"version": "lts",
-		// 	"nodeGypDependencies": true
-		// },
-		"azure-cli": "latest"
-	},
-	// Set *default* container specific settings.json values on container create.
-	"settings": {
-		"files.associations": {
-			"**/ci/*.yml": "azure-pipelines"
-		},
-		"omnisharp.enableAsyncCompletion": true,
-		"omnisharp.enableImportCompletion": true,
-		"omnisharp.enableRoslynAnalyzers": true,
-    	"omnisharp.organizeImportsOnFormat": true,
-		"omnisharp.useEditorFormattingSettings": true,
-		"omnisharp.useModernNet": true,
-		"razor.disabled": true,
-		"terminal.integrated.defaultProfile.linux": "zsh",
-	},
-
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		"visualstudioexptteam.vscodeintellicode",
-		"VisualStudioExptTeam.vscodeintellicode-completions",
-		"ms-dotnettools.csharp",
-		"ms-dotnettools.vscode-dotnet-runtime",
-		"ms-edgedevtools.vscode-edge-devtools",
-		
-		"humao.rest-client",
-		
-		"ms-vscode.azurecli",
-		"ms-azure-devops.azure-pipelines",
-		"ms-azuretools.vscode-azureresourcegroups",
-		"ms-azuretools.vscode-azureappservice",
-		"ms-azuretools.vscode-azurevirtualmachines",
-
-		"ms-dotnettools.dotnet-interactive-vscode",
-
-		"ms-vscode.wordcount",
-		"editorconfig.editorconfig",
-		"esbenp.prettier-vscode",
-		"streetsidesoftware.code-spell-checker",
-		"redhat.fabric8-analytics",
-		"redhat.vscode-yaml",
-		"bierner.github-markdown-preview",
-	],
+	// See complete list https://hub.docker.com/_/microsoft-dotnet-sdk/
+	// Or https://mcr.microsoft.com/v2/dotnet/sdk/tags/list
+	"image": "mcr.microsoft.com/dotnet/sdk:6.0",
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [5000, 5001],
+	"forwardPorts": [
+        // Http
+        5000,
+        // Https
+        5001
+    ],
 
-	// [Optional] To reuse of your local HTTPS dev cert:
-	//
-	// 1. Export it locally using this command:
-	//    * Windows PowerShell:
-	//        dotnet dev-certs https --trust; dotnet dev-certs https -ep "$env:USERPROFILE/.aspnet/https/aspnetapp.pfx" -p "SecurePwdGoesHere"
-	//    * macOS/Linux terminal:
-	//        dotnet dev-certs https --trust; dotnet dev-certs https -ep "${HOME}/.aspnet/https/aspnetapp.pfx" -p "SecurePwdGoesHere"
-	// 
-	// 2. Uncomment these 'remoteEnv' lines:
-	//    "remoteEnv": {
-	// 	      "ASPNETCORE_Kestrel__Certificates__Default__Password": "SecurePwdGoesHere",
-	//        "ASPNETCORE_Kestrel__Certificates__Default__Path": "/home/vscode/.aspnet/https/aspnetapp.pfx",
-	//    },
-	//
-	// 3. Do one of the following depending on your scenario:
-	//    * When using GitHub Codespaces and/or Remote - Containers:
-	//      1. Start the container
-	//      2. Drag ~/.aspnet/https/aspnetapp.pfx into the root of the file explorer
-	//      3. Open a terminal in VS Code and run "mkdir -p /home/vscode/.aspnet/https && mv aspnetapp.pfx /home/vscode/.aspnet/https"
-	//
-	//    * If only using Remote - Containers with a local container, uncomment this line instead:
-	//      "mounts": [ "source=${env:HOME}${env:USERPROFILE}/.aspnet/https,target=/home/vscode/.aspnet/https,type=bind" ],
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	"remoteUser": "root",
 
+    // Add more features. See complete list https://github.com/devcontainers/features
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"configureZshAsDefaultShell": true
+		},
+		"ghcr.io/devcontainers/features/github-cli:1": {},
+		"ghcr.io/devcontainers/features/powershell:1": {},
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+			"moby": false,
+			"dockerDashComposeVersion": "v2"
+		},
+		"ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
+			"minikube": "none"
+		},
+        "ghcr.io/devcontainers/features/node:1": {},
+        "ghcr.io/devcontainers/features/azure-cli:1": {}
+    },
+    "containerEnv": {
+        // Set ASP.NET environment settings.
+        "ASPNETCORE_URLS": "https://+:5001;http://+:5000",
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        // Set dotnet CLI environment settings.
+        "DOTNET_CLI_TELEMETRY_OPTOUT": "1",
+        "DOTNET_GENERATE_ASPNET_CERTIFICATE": "1",
+        "DOTNET_NOLOGO": "1"
+    },
+    // Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+                "visualstudioexptteam.vscodeintellicode-insiders",
+				"visualstudiotxptteam.vscodeintellicode-completions",
+				"ms-dotnettools.csharp",
+				"ms-dotnettools.vscode-dotnet-runtime",
+                "ms-dotnettools.dotnet-interactive-vscode",
+
+                "usernamehw.errorlens",
+                "editorconfig.editorconfig",
+
+				"ms-vscode.azurecli",
+				"ms-azuretools.vscode-docker",
+                "ms-kubernetes-tools.vscode-kubernetes-tools",
+                "ms-kubernetes-tools.vscode-aks-tools",
+                "ms-kubernetes-tools.aks-devx-tools",
+                "ms-azuretools.vscode-azurecontainerapps",
+                "ms-azuretools.vscode-bicep",
+                "bencoleman.armview",
+                "redhat.vscode-yaml",
+                "ms-vscode.vscode-node-azure-pack",
+				"ms-azuretools.vscode-azureserverlesspack",
+
+                "ms-azure-devops.azure-pipelines",
+
+                "bierner.github-markdown-preview",
+
+				// This ext is bundled with mssql and will be installed automatically.
+				// Database projects can be handled via Azure Data Studio.
+				// "ms-mssql.sql-database-projects-vscode",
+                "ms-mssql.mssql",
+
+                "humao.rest-client",
+
+				"ms-vscode.wordcount",
+				"streetsidesoftware.code-spell-checker",
+				"redhat.fabric8-analytics"
+			],
+			// Set *default* container specific settings.json values on container create.
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "zsh",
+
+				"editor.formatOnPaste": true,
+				"editor.guides.bracketPairs": "active",
+				"debug.internalConsoleOptions": "neverOpen",
+
+                "scm.defaultViewMode": "tree",
+
+				"files.watcherExclude": {
+					"**/bin/**": true,
+					"**/obj/**": true,
+				},
+				"files.associations": {
+					"**/ci/*.yml": "azure-pipelines"
+				},
+
+                "omnisharp.enableAsyncCompletion": true,
+				"omnisharp.enableImportCompletion": true,
+				"omnisharp.enableRoslynAnalyzers": true,
+				"omnisharp.organizeImportsOnFormat": true,
+				"omnisharp.useEditorFormattingSettings": true,
+				"omnisharp.enableEditorConfigSupport": true,
+				// Fix for ARM-based devices.
+				// Read more https://github.com/OmniSharp/omnisharp-vscode/issues/4348#issuecomment-1003867594
+				"omnisharp.path": "latest",
+				"omnisharp.sdkIncludePrereleases": true,
+				"omnisharp.useModernNet": true,
+
+				"razor.disabled": true
+            }
+		}
+	},
+
+	// Use 'updateContentCommand' to run commands after the container is successfully created.
+	"updateContentCommand": { 
+		"dev-certs": "dotnet dev-certs https --clean && dotnet dev-certs https -t",
+		"clean": "rm -rf **/bin **/obj"
+	},
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "zsh .devcontainer/post-create.zsh",
-	// Uncomment to indicates whether VS Code should stop the containers when the VS Code window is closed / shut down. Values are "none" and "stopCompose" (default).
-	"shutdownAction": "stopCompose",
-
-	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "vscode"
+	"postCreateCommand": {
+		"restore": "dotnet restore --no-cache --force"
+	}
 }
