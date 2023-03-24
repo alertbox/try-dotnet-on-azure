@@ -117,15 +117,15 @@
 				"razor.disabled": true
             }
 		}
-	},
+	}
 
 	// Use 'updateContentCommand' to run commands after the container is successfully created.
-	"updateContentCommand": { 
-		"dev-certs": "dotnet dev-certs https --clean && dotnet dev-certs https -t",
-		"clean": "rm -rf **/bin **/obj"
-	},
+	// "updateContentCommand": { 
+	// 	"dev-certs": "dotnet dev-certs https --clean && dotnet dev-certs https -t",
+	// 	"clean": "rm -rf **/bin **/obj"
+	// },
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": {
-		"restore": "dotnet restore --no-cache --force"
-	}
+	// "postCreateCommand": {
+	// 	"restore": "dotnet restore --no-cache --force"
+	// }
 }
