@@ -100,6 +100,14 @@ With VS Code:
 
 
 
+## Known issues
+
+- https://github.com/devcontainers/features/issues/440
+- https://github.com/azure/azure-functions-core-tools/issues/3112
+- https://github.com/omnisharp/omnisharp-vscode/issues/4348
+
+
+
 ## Useful Resources
 
 - [Dev Containers specification][devcontainers-json-spec] is a good source to learn more about `.devcontainer.json` configuration options and its usage.
