@@ -4,20 +4,20 @@
 
 This template repo serves as a flavor of ready-to-go .NET and Azure development container.
 
-> Originally, this dev container was created to tryout [.NET preview versions][dotnet-download-latest] without having to install them locally.
+> Originally, this dev container was created to tryout [.NET preview versions][dotnet-versions] without having to install them locally.
 
 [dotnet-quick-start]: https://learn.microsoft.com/en-us/dotnet/standard/get-started
-[dotnet-download-latest]: https://dotnet.microsoft.com/en-us/download/dotnet
+[dotnet-versions]: https://versionsof.net/core/
 
 ### What's included:
 
 Technically, this includes nothing but:
 
-- .NET 6.0 LTS SDK and Azure CLI with Bicep
+- [.NET 7 Latest SDK][dotnet-versions-download] and Azure CLI with Bicep
 - Docker and Kubernetes with Helm Charts, and
 - Configured to build and run from VS Code
 
-
+[dotnet-versions-download]: https://dotnet.microsoft.com/en-us/download/dotnet
 
 ## Requirements
 
