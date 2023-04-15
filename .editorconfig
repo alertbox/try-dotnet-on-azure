@@ -11,16 +11,39 @@ charset = utf-8
 end_of_line = lf
 trim_trailing_whitespace = true
 
+# Spell checker configuration
+spelling_exclusion_path = .\.spellignores
+
+# Code files
+[*.xaml]
+indent_size = 4
+
+[*.ps1]
+indent_size = 2
+
+# Xml project files
+[*.{csproj,proj,projitems,shproj,sfproj}]
+indent_size = 2
+
+# Xml config files
+[*.{props,targets,ruleset,config,nuspec}]
+indent_size = 2
+
+# JSON files
+[*.{json,yaml,yml}]
+indent_size = 2
+
 # Xml files
 [*.xml]
 indent_size = 2
 
 # C# files
-[*.cs]
-
+[*.{cs,csx}]
 # Indentation and spacing
 indent_size = 4
 tab_width = 4
+insert_final_newline = true
+
 dotnet_sort_system_directives_first = true
 
 # Import namespaces per file
