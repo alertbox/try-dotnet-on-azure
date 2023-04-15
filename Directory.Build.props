@@ -1,29 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
 <Project>
   <!-- See https://aka.ms/dotnet/msbuild/customize for more details on customizing your build -->
   <PropertyGroup Label="Sdk">
-		<DefaultNetCoreTargetFramework>net7.0</DefaultNetCoreTargetFramework>
-		<IsPackable>false</IsPackable>
-		<IsTestProject>$(MSBuildProjectName.EndsWith('.Tests'))</IsTestProject>
+	  <DefaultNetCoreTargetFramework>net7.0</DefaultNetCoreTargetFramework>
+	  <IsPackable>false</IsPackable>
+	  <IsTestProject>$(MSBuildProjectName.EndsWith('.Tests'))</IsTestProject>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <DefinteConstants>DEBUG;TRACE</DefinteConstants>
   </PropertyGroup>
 
-	<ItemGroup Label="Enable Internals" Condition="'$(IsTestProject)' != 'true'">
+  <ItemGroup Label="Add Internals Visibility" Condition="'$(IsTestProject)' != 'true'">
     <InternalsVisibleTo Include="$(MSBuildProjectName).Tests" />
-	</ItemGroup>
+  </ItemGroup>
 
-	<ItemGroup Label="Enable Internals" Condition="'$(IsTestProject)' == 'true'">
+  <PropertyGroup Label="Code Coverage" Condition="'$(IsTestProject)' == 'true'">
     <RunSettingsFilePath>$(SolutionDir)\.runsettings</RunSettingsFilePath>
-	</ItemGroup>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
 
-	<PropertyGroup Label="General Info">
-		<Authors>Kosala Nuwan Perera</Authors>
-		<Company>Alertbox Inc.</Company>
-		<Copyright>Copyright (c) $([System.DateTime]::Now.ToString('yyyy')) $(Company)</Copyright>
-		<RepositoryUrl>https://github.com/alertbox/skol-fast-endpoints</RepositoryUrl>
-		<RepositoryType>git</RepositoryType>
-	</PropertyGroup>
+  <PropertyGroup Label="General Info">
+	<Authors>Kosala Nuwan Perera</Authors>
+	<Company>Alertbox Inc.</Company>
+	<Copyright>Copyright (c) $([System.DateTime]::Now.ToString('yyyy')) $(Company)</Copyright>
+	<RepositoryUrl>https://github.com/alertbox/skol-fast-endpoints</RepositoryUrl>
+	<RepositoryType>git</RepositoryType>
+  </PropertyGroup>
 
 </Project>
