@@ -26,7 +26,7 @@
 	<Authors>Kosala Nuwan Perera</Authors>
 	<Company>Alertbox Inc.</Company>
 	<Copyright>Copyright (c) $([System.DateTime]::Now.ToString('yyyy')) $(Company)</Copyright>
-	<RepositoryUrl>https://github.com/alertbox/skol-fast-endpoints</RepositoryUrl>
+	<RepositoryUrl>https://github.com/alertbox/devcontainers-try-dotnet-stuff</RepositoryUrl>
 	<RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
