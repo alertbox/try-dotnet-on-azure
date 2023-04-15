@@ -3,6 +3,7 @@
 # top-most EditorConfig file
 root = true
 
+# All files
 [*]
 # Unix-style newlines with a newline ending every file
 indent_style = space
@@ -10,8 +11,16 @@ charset = utf-8
 end_of_line = lf
 trim_trailing_whitespace = true
 
+# Xml files
+[*.xml]
+indent_size = 2
+
+# C# files
 [*.cs]
+
+# Indentation and spacing
 indent_size = 4
+tab_width = 4
 dotnet_sort_system_directives_first = true
 
 # Import namespaces per file
