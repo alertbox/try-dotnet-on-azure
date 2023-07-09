@@ -101,7 +101,9 @@
         "omnisharp.path": "latest",
         "omnisharp.sdkIncludePrereleases": true,
         "omnisharp.useModernNet": true,
-        "razor.disabled": true
+        "razor.disabled": true,
+        // Show Request and Response both.
+        "rest-client.previewOption": "exchange"
       }
     }
   },
