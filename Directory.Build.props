@@ -10,7 +10,14 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
-    <DefinteConstants>DEBUG;TRACE</DefinteConstants>
+    <DebugType>full</DebugType>
+    <DefinteConstants>DEBUG;TRACE;$(DefineConstants)</DefinteConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <Optimize>true</Optimize>
+    <DebugType>embedded</DebugType>
+    <DefinteConstants>TRACE;$(DefineConstants)</DefinteConstants>
   </PropertyGroup>
 
   <ItemGroup Label="Add Internals Visibility" Condition="'$(IsTestProject)' != 'true'">
