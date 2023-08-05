@@ -1,0 +1,8 @@
+<!-- HINT: Instructions can be found at
+           https://learn.microsoft.com/en-us/nuget/consume-packages/Central-Package-Management#enabling-central-package-management
+-->
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+</Project>
