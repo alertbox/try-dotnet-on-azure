@@ -1,0 +1,1 @@
+Follow the convensional commit format for pull requests as well.
