@@ -19,6 +19,7 @@
     },
     "ghcr.io/devcontainers/features/github-cli:1": {},
     "ghcr.io/devcontainers/features/powershell:1": {},
+    "ghcr.io/dapr/cli/dapr-cli:0": {},
     "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
       "moby": false,
       "dockerDashComposeVersion": "v2"
@@ -30,7 +31,7 @@
     "ghcr.io/devcontainers/features/azure-cli:1": {
       "extensions": "azure-devops, containerapp, staticwebapp"
     },
-    "ghcr.io/dapr/cli/dapr-cli:0": {}
+    "ghcr.io/devcontainers/features/terraform:1": {}
   },
   "containerEnv": {
     // Set ASP.NET environment settings.
@@ -47,31 +48,31 @@
     "vscode": {
       // Add the IDs of extensions you want installed when the container is created.
       "extensions": [
-        "visualstudioexptteam.vscodeintellicode-insiders",
-        "visualstudiotxptteam.vscodeintellicode-completions",
         "ms-dotnettools.csharp",
-        "ms-dotnettools.vscode-dotnet-runtime",
-        "ms-dotnettools.dotnet-interactive-vscode",
-        "usernamehw.errorlens",
+        "visualstudioexptteam.vscodeintellicode-insiders",
+        "VisualStudioExptTeam.vscodeintellicode-completions",
+
         "editorconfig.editorconfig",
+
         "ms-vscode.azurecli",
+        "ms-azuretools.azure-dev",
+
         "ms-azuretools.vscode-docker",
         "ms-kubernetes-tools.vscode-kubernetes-tools",
-        "ms-kubernetes-tools.vscode-aks-tools",
-        "ms-kubernetes-tools.aks-devx-tools",
         "ms-azuretools.vscode-azurecontainerapps",
-        "ms-azuretools.vscode-bicep",
-        "bencoleman.armview",
+        "ms-azuretools.vscode-dapr",
+
         "redhat.vscode-yaml",
-        "ms-vscode.vscode-node-azure-pack",
-        "ms-azuretools.vscode-azureserverlesspack",
         "ms-azure-devops.azure-pipelines",
+
         "bierner.github-markdown-preview",
         // This ext is bundled with mssql and will be installed automatically.
         // Database projects can be handled via Azure Data Studio.
         // "ms-mssql.sql-database-projects-vscode",
         "ms-mssql.mssql",
+
         "humao.rest-client",
+
         "ms-vscode.wordcount",
         "streetsidesoftware.code-spell-checker",
         "redhat.fabric8-analytics"
@@ -110,11 +111,11 @@
   // Use 'updateContentCommand' to run commands after the container is successfully created.
   "updateContentCommand": {
     "dev-certs": "dotnet dev-certs https --clean && dotnet dev-certs https -t",
-    "clean": "rm -rf **/bin **/obj",
-    "init": "dapr init"
+    "clean": "rm -rf **/bin **/obj"
   },
   // Use 'postCreateCommand' to run commands after the container is created.
   // "postCreateCommand": {
+  //   "init": "dapr init",
   //   "restore": "dotnet restore --no-cache --force"
   // }
 }
