@@ -1,0 +1,16 @@
+{
+    "editor.formatOnPaste": true,
+    "editor.guides.bracketPairs": "active",
+    "scm.defaultViewMode": "tree",
+    "diffEditor.diffAlgorithm": "advanced",
+    "diffEditor.experimental.collapseUnchangedRegions": true,
+    "diffEditor.experimental.showMoves": true,
+    "diffEditor.experimental.useVersion2": true,
+    "diffEditor.renderSideBySide": false,
+    "files.watcherExclude": {
+        "**/bin/**": true,
+        "**/obj/**": true
+    },
+    // Show Request and Response both.
+    "rest-client.previewOption": "exchange"
+}
