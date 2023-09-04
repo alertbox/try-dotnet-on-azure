@@ -84,6 +84,11 @@
         "editor.guides.bracketPairs": "active",
         "debug.internalConsoleOptions": "neverOpen",
         "scm.defaultViewMode": "tree",
+        "diffEditor.diffAlgorithm": "advanced",
+        "diffEditor.experimental.collapseUnchangedRegions": true,
+        "diffEditor.experimental.showMoves": true,
+        "diffEditor.experimental.useVersion2": true,
+        "diffEditor.renderSideBySide": false,
         "files.watcherExclude": {
           "**/bin/**": true,
           "**/obj/**": true
