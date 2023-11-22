@@ -87,10 +87,6 @@
       ],
       // Set *default* container specific settings.json values on container create.
       "settings": {
-        "files.watcherExclude": {
-          "**/bin/**": true,
-          "**/obj/**": true
-        },
         "files.associations": {
           "**/ci/*.yml": "azure-pipelines"
         },
