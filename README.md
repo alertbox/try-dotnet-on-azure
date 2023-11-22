@@ -1,4 +1,6 @@
-# Tryout .NET & Azure Stuff
+# Tryout Azure & .NET Stuff
+
+[![Open in Dev Container](https://img.shields.io/static/v1?style=for-the-badge&label=Dev+Container&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/alertbox/devcontainers-azure-dotnet)
 
 [<img align="right" alt=".NET C-sharp" width="128rem" src="https://raw.githubusercontent.com/github/explore/93d8a67084f94b2a444e510199a6e7622e5b09a3/topics/dotnet/dotnet.png" />][dotnet-quick-start]
 
@@ -13,7 +15,7 @@ This template repo serves as a flavor of ready-to-go .NET and Azure development 
 
 Technically, this includes nothing but:
 
-- [.NET 7 Latest SDK][dotnet-versions-download] and Azure CLI with Bicep
+- [.NET Latest (LTS) SDK][dotnet-versions-download] and Azure CLI with Bicep
 - Docker and Kubernetes with Helm Charts, and
 - Configured to build and run from VS Code
 

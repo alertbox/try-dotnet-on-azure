@@ -2,13 +2,13 @@
   "name": "dotnet",
   // See complete list https://hub.docker.com/_/microsoft-dotnet-sdk/
   // Or https://mcr.microsoft.com/v2/dotnet/sdk/tags/list
-  "image": "mcr.microsoft.com/dotnet/sdk:7.0-bullseye-slim",
+  "image": "mcr.microsoft.com/dotnet/sdk:8.0-bookworm-slim",
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [
     // Http
-    5000,
+    8080,
     // Https
-    5001
+    8081
   ],
   // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
   "remoteUser": "root",
@@ -28,6 +28,7 @@
       "minikube": "none"
     },
     "ghcr.io/devcontainers/features/node:1": {},
+    "ghcr.io/azure/azure-dev/azd:0": {},
     "ghcr.io/devcontainers/features/azure-cli:1": {
       "extensions": "azure-devops, containerapp, staticwebapp"
     },
@@ -42,6 +43,10 @@
     "DOTNET_GENERATE_ASPNET_CERTIFICATE": "1",
     "DOTNET_NOLOGO": "1"
   },
+  "remoteEnv": {
+    "DOTNET_MULTILEVEL_LOOKUP": "0",
+    "TARGET": "net8.0"
+  },
   // Configure tool-specific properties.
   "customizations": {
     // Configure properties specific to VS Code.
@@ -49,6 +54,8 @@
       // Add the IDs of extensions you want installed when the container is created.
       "extensions": [
         "ms-dotnettools.csharp",
+        "ms-dotnettools.csdevkit",
+
         "visualstudioexptteam.vscodeintellicode-insiders",
         "VisualStudioExptTeam.vscodeintellicode-completions",
 
@@ -64,6 +71,7 @@
 
         "redhat.vscode-yaml",
         "ms-azure-devops.azure-pipelines",
+        // "GitHub.vscode-github-actions",
 
         "bierner.github-markdown-preview",
         // This ext is bundled with mssql and will be installed automatically.
@@ -79,16 +87,6 @@
       ],
       // Set *default* container specific settings.json values on container create.
       "settings": {
-        "terminal.integrated.defaultProfile.linux": "zsh",
-        "editor.formatOnPaste": true,
-        "editor.guides.bracketPairs": "active",
-        "debug.internalConsoleOptions": "neverOpen",
-        "scm.defaultViewMode": "tree",
-        "diffEditor.diffAlgorithm": "advanced",
-        "diffEditor.experimental.collapseUnchangedRegions": true,
-        "diffEditor.experimental.showMoves": true,
-        "diffEditor.experimental.useVersion2": true,
-        "diffEditor.renderSideBySide": false,
         "files.watcherExclude": {
           "**/bin/**": true,
           "**/obj/**": true
@@ -108,8 +106,6 @@
         "omnisharp.sdkIncludePrereleases": true,
         "omnisharp.useModernNet": true,
         "razor.disabled": true,
-        // Show Request and Response both.
-        "rest-client.previewOption": "exchange"
       }
     }
   },
