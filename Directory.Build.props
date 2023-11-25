@@ -2,7 +2,7 @@
 <Project>
   <!-- See https://aka.ms/dotnet/msbuild/customize for more details on customizing your build -->
   <PropertyGroup Label="Sdk">
-	  <DefaultNetCoreTargetFramework>net7.0</DefaultNetCoreTargetFramework>
+	  <DefaultNetCoreTargetFramework>net8.0</DefaultNetCoreTargetFramework>
 	  <IsPackable>false</IsPackable>
 	  <IsTestProject>$(MSBuildProjectName.EndsWith('.Tests'))</IsTestProject>
     <Nullable>enable</Nullable>
