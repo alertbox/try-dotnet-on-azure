@@ -31,7 +31,12 @@
     "ghcr.io/devcontainers/features/azure-cli:1": {
       "extensions": "azure-devops, containerapp, staticwebapp"
     },
-    "ghcr.io/devcontainers/features/terraform:1": {}
+    // HACK: https://github.com/hashicorp/vscode-terraform/issues/1524#issuecomment-1614892272
+    "ghcr.io/devcontainers/features/terraform:1": {
+      "version": "latest",
+      "tflint": "latest",
+      "terragrunt": "latest"
+    },
   },
   "containerEnv": {
     // Set ASP.NET environment settings.
