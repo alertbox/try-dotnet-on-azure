@@ -25,7 +25,7 @@ You can also run this repo locally by following these repetitive steps:
 
 
 
-[See .NET Docker Images][dotnet-docker-images] for other variations that suites your hardware.
+>  See [.NET Docker Images][dotnet-docker-images] for other variations that suites your hardware.
 
 [dotnet-docker-images]: https://hub.docker.com/_/microsoft-dotnet-sdk/
 
@@ -60,7 +60,7 @@ Have a suggestion or a bug fix? Just open a pull request or an issue. Include cl
 
 ## License
 
-Copyright :copyright: Alertbox, Inc. (@alertbox). All rights reserved.
+Copyright &copy; Alertbox, Inc. (@alertbox). All rights reserved.
 
 The source code is license under the [MIT license](#MIT-1-ov-file).
 
