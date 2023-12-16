@@ -2,18 +2,19 @@
 
 [<img align="right" alt=".NET C-sharp" width="128rem" src="https://raw.githubusercontent.com/github/explore/93d8a67084f94b2a444e510199a6e7622e5b09a3/topics/dotnet/dotnet.png" />][dotnet-quick-start]
 
-Start a dev container from a template and get to developing with C# leveraging .NET on Azure.
+Start a dev container and get to developing .NET apps leveraging a [variety of Azure services][az-services-for-dotnet].
 
-> Originally, this dev container was created to tryout [.NET preview versions][dotnet-versions] without having to install them locally.
+> Originally, this dev container was created to tryout [what's new in .NET][dotnet-whats-new] without installing them on your computer.
 
-[dotnet-quick-start]: https://learn.microsoft.com/en-us/dotnet/standard/get-started
-[dotnet-versions]: https://versionsof.net
+[dotnet-quick-start]: https://learn.microsoft.com/en-us/dotnet/
+[az-services-for-dotnet]: https://learn.microsoft.com/en-us/dotnet/azure/key-azure-services
+[dotnet-whats-new]: https://learn.microsoft.com/en-us/dotnet/core/whats-new/
 
 
 
 ## Quick Start
 
-[![Open in Dev Container](https://img.shields.io/static/v1?style=for-the-badge&label=Dev+Container&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/alertbox/devcontainers-azure-dotnet)
+[![Open in Dev Container](https://img.shields.io/static/v1?style=for-the-badge&label=Dev+Container&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/alertbox/try-dotnet-on-azure)
 
 
 
@@ -27,28 +28,6 @@ You can also run this repo locally by following these repetitive steps:
 [See .NET Docker Images][dotnet-docker-images] for other variations that suites your hardware.
 
 [dotnet-docker-images]: https://hub.docker.com/_/microsoft-dotnet-sdk/
-
-
-
-## Learn More
-
-If you are completely new to C# and .NET, the [@dotnet YouTube Channel][yt-dotnet-playlists] is a good source to learn the basics.
-
-[yt-dotnet-playlists]: https://www.youtube.com/@dotnet/playlists
-
-
-
-- [Dev Containers specification][devcontainers-json-spec] is a good source to learn more about `.devcontainer.json` configuration options and its usage.
-- [See .NET CLI page][ms-docs-dotnet-cli] to learn the full-blown `dotnet` options.
-- [See Azure CLI page][ms-docs-azure-cli] to learn what can be done with `az` and `az pipelines`.
-- [See Azure DevOps CLI page][ms-docs-azure-devops-cli] to learn what can be done with `az devops` .
-
-
-
-[devcontainers-json-spec]: https://containers.dev/implementors/json_reference/
-[ms-docs-dotnet-cli]: https://docs.microsoft.com/en-us/dotnet/core/tools/
-[ms-docs-azure-cli]: https://learn.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest
-[ms-docs-azure-devops-cli]: https://learn.microsoft.com/en-us/azure/devops/cli/?view=azure-devops
 
 
 
