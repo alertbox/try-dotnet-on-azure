@@ -23,7 +23,7 @@ You can also run this repo locally by following these repetitive steps:
 1. You want to ensure the repo is cloned to your local machine, and 
 2. Open it in VS Code.
 
-### Run Options
+
 
 [See .NET Docker Images][dotnet-docker-images] for other variations that suites your hardware.
 
@@ -60,7 +60,7 @@ Have a suggestion or a bug fix? Just open a pull request or an issue. Include cl
 
 ## License
 
-Copyright :copyright: 2020 Alertbox, Inc. (@alertbox). All rights reserved.
+Copyright :copyright: Alertbox, Inc. (@alertbox). All rights reserved.
 
 The source code is license under the [MIT license](#MIT-1-ov-file).
 
