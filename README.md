@@ -4,16 +4,11 @@
 
 [<img align="right" alt=".NET C-sharp" width="96rem" src="https://raw.githubusercontent.com/github/explore/93d8a67084f94b2a444e510199a6e7622e5b09a3/topics/dotnet/dotnet.png" />][dotnet-quick-start]
 
-
-
-
-
 Start a dev container and get to developing .NET apps leveraging a [variety of Azure services][az-services-for-dotnet].
 
 > Originally, this dev container was created to tryout [what's new in .NET][dotnet-whats-new] without installing them on your computer.
 
 [dotnet-quick-start]: https://learn.microsoft.com/en-us/dotnet/
-
 [az-services-for-dotnet]: https://learn.microsoft.com/en-us/dotnet/azure/key-azure-services
 [dotnet-whats-new]: https://learn.microsoft.com/en-us/dotnet/core/whats-new/
 
