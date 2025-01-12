@@ -2,7 +2,7 @@
   "name": ".NET on Azure",
   // See complete list https://hub.docker.com/_/microsoft-dotnet-sdk/
   // Or https://mcr.microsoft.com/v2/dotnet/sdk/tags/list
-  "image": "mcr.microsoft.com/dotnet/sdk:8.0-bookworm-slim",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [
     // Http
@@ -22,6 +22,7 @@
       "moby": false,
       "dockerDashComposeVersion": "v2"
     },
+    "ghcr.io/devcontainers/features/dotnet:2": "lts",
     "ghcr.io/devcontainers/features/node:1": {},
     "ghcr.io/devcontainers/features/azure-cli:1": {
       "extensions": "azure-devops, containerapp, staticwebapp"
@@ -50,9 +51,6 @@
     "ASPNETCORE_URLS": "http://+:8080;https://+:8081",
     "ASPNETCORE_ENVIRONMENT": "Development"
   },
-  "remoteEnv": {
-    "TARGET": "net8.0"
-  },
   // Configure tool-specific properties.
   "customizations": {
     // Configure properties specific to VS Code.
@@ -60,11 +58,7 @@
       // Add the IDs of extensions you want installed when the container is created.
       "extensions": [
         // Read more https://github.com/microsoft/vscode-dotnettools/issues/562
-        // "ms-dotnettools.csdevkit",
-        "VisualStudioExptTeam.vscodeintellicode-insiders",
-        "ms-dotnettools.vscode-dotnet-runtime",
-        "ms-dotnettools.csharp",
-
+        "ms-dotnettools.csdevkit",
         "ms-vscode.vscode-node-azure-pack",
         "ms-mssql.mssql",
         "humao.rest-client",
@@ -77,6 +71,7 @@
       ],
       // Set *default* container specific settings.json values on container create.
       "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh",
         "bicep.enableSurveys": false,
         "redhat.telemetry.enabled": false,
         "rest-client.previewOption": "exchange",
