@@ -63,6 +63,10 @@
         "ms-mssql.mssql",
         "humao.rest-client",
 
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "ms-azuretools.vscode-azure-github-copilot",
+
         "redhat.vscode-yaml",
         "editorconfig.editorconfig",
         "albert.tabout",
