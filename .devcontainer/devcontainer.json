@@ -34,11 +34,7 @@
     },
 
     // Read more https://github.com/hashicorp/vscode-terraform/issues/1524#issuecomment-1614892272
-    "ghcr.io/devcontainers/features/terraform:1": {
-      "version": "latest",
-      "tflint": "latest",
-      "terragrunt": "latest"
-    }
+    "ghcr.io/alertbox/devcontainer-features/opentofu:1": {}
   },
   "containerEnv": {
     // Set dotnet CLI environment settings.
