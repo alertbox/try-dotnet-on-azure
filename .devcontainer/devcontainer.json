@@ -23,7 +23,6 @@
       "dockerDashComposeVersion": "v2"
     },
     "ghcr.io/devcontainers/features/dotnet:2": "lts",
-    "ghcr.io/devcontainers/features/node:1": {},
     "ghcr.io/devcontainers/features/azure-cli:1": {
       "extensions": "azure-devops, containerapp, staticwebapp"
     },
@@ -32,7 +31,7 @@
     "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
       "minikube": "none"
     },
-
+    "ghcr.io/alertbox/devcontainer-features/bun:2": {},
     // Read more https://github.com/hashicorp/vscode-terraform/issues/1524#issuecomment-1614892272
     "ghcr.io/alertbox/devcontainer-features/opentofu:1": {}
   },
