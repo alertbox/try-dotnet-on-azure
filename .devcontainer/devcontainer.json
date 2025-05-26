@@ -18,22 +18,23 @@
       "configureZshAsDefaultShell": true
     },
     "ghcr.io/devcontainers/features/github-cli:1": {},
-    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
-      "moby": false,
-      "dockerDashComposeVersion": "v2"
-    },
     "ghcr.io/devcontainers/features/dotnet:2": "lts",
     "ghcr.io/devcontainers/features/azure-cli:1": {
       "extensions": "azure-devops, containerapp, staticwebapp"
     },
-    "ghcr.io/azure/azure-dev/azd:latest": {},
+    "ghcr.io/azure/azure-dev/azd:0": {},
+    // Read more https://github.com/hashicorp/vscode-terraform/issues/1524#issuecomment-1614892272
+    "ghcr.io/alertbox/dotcontainers/opentofu:0": {},
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+      "moby": false,
+      "dockerDashComposeVersion": "v2"
+    },
     "ghcr.io/dapr/cli/dapr-cli:0": {},
     "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
       "minikube": "none"
     },
-    "ghcr.io/alertbox/devcontainer-features/bun:2": {},
-    // Read more https://github.com/hashicorp/vscode-terraform/issues/1524#issuecomment-1614892272
-    "ghcr.io/alertbox/devcontainer-features/opentofu:1": {}
+    "ghcr.io/devcontainers/features/node:1": {},
+    "ghcr.io/alertbox/dotcontainers/bun:0": {},
   },
   "containerEnv": {
     // Set dotnet CLI environment settings.
@@ -44,7 +45,8 @@
     "DOTNET_NOLOGO": "1",
     // Set ASP.NET environment settings.
     "ASPNETCORE_URLS": "http://+:8080;https://+:8081",
-    "ASPNETCORE_ENVIRONMENT": "Development"
+    "ASPNETCORE_ENVIRONMENT": "Development",
+    "AZURE_DEV_COLLECT_TELEMETRY": "no"
   },
   // Configure tool-specific properties.
   "customizations": {
@@ -81,15 +83,17 @@
         "omnisharp.useEditorFormattingSettings": true,
         "omnisharp.enableEditorConfigSupport": true,
 
-        "razor.disabled": true
+        "razor.disabled": true,
+        "github.copilot.chat.agent.runTasks": true,
+        "github.copilot.chat.codeGeneration.useInstructionFiles": true,
       }
     }
   },
   // Use 'updateContentCommand' to run commands after the container is successfully created.
-  "updateContentCommand": {
-    "dev-certs": "dotnet dev-certs https --clean && dotnet dev-certs https -t",
-    "clean": "rm -rf **/bin **/obj"
-  },
+  // "updateContentCommand": {
+  //   "dev-certs": "dotnet dev-certs https --clean && dotnet dev-certs https -t",
+  //   "clean": "rm -rf **/bin **/obj"
+  // },
   // Use 'postCreateCommand' to run commands after the container is created.
   // "postCreateCommand": {
   //   "init": "dapr init",

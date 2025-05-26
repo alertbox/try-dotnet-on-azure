@@ -1,6 +1,5 @@
 {
     "terminal.integrated.defaultProfile.linux": "zsh",
-    "editor.formatOnPaste": true,
     "editor.guides.bracketPairs": "active",
     "debug.internalConsoleOptions": "neverOpen",
     "scm.defaultViewMode": "tree",
@@ -13,4 +12,4 @@
     },
     // Show Request and Response both.
     "rest-client.previewOption": "exchange",
-}
+  }
