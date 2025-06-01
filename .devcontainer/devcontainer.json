@@ -24,17 +24,17 @@
     },
     "ghcr.io/azure/azure-dev/azd:0": {},
     // Read more https://github.com/hashicorp/vscode-terraform/issues/1524#issuecomment-1614892272
-    "ghcr.io/alertbox/dotcontainers/opentofu:0": {},
+    "ghcr.io/alertbox/opentofu/tofu:1": {},
     "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
       "moby": false,
       "dockerDashComposeVersion": "v2"
     },
-    "ghcr.io/dapr/cli/dapr-cli:0": {},
     "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
       "minikube": "none"
     },
-    "ghcr.io/devcontainers/features/node:1": {},
-    "ghcr.io/alertbox/dotcontainers/bun:0": {},
+    "ghcr.io/dapr/cli/dapr-cli:0": {},
+    "ghcr.io/devcontainers/features/node:1": "lts",
+    "ghcr.io/alertbox/oven-sh/bun:1": {}
   },
   "containerEnv": {
     // Set dotnet CLI environment settings.
@@ -72,31 +72,33 @@
       ],
       // Set *default* container specific settings.json values on container create.
       "settings": {
-        "terminal.integrated.defaultProfile.linux": "zsh",
-        "bicep.enableSurveys": false,
-        "redhat.telemetry.enabled": false,
-        "rest-client.previewOption": "exchange",
-        // Fix for ARM-based devices.
-        // Read more https://github.com/OmniSharp/omnisharp-vscode/issues/4348#issuecomment-1003867594
-        "omnisharp.useModernNet": true,
-        "omnisharp.organizeImportsOnFormat": true,
-        "omnisharp.useEditorFormattingSettings": true,
-        "omnisharp.enableEditorConfigSupport": true,
-
-        "razor.disabled": true,
         "github.copilot.chat.agent.runTasks": true,
         "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+        "debug.internalConsoleOptions": "neverOpen",
+        "diffEditor.diffAlgorithm": "advanced",
+        "diffEditor.experimental.showMoves": true,
+        "bicep.enableSurveys": false,
+        "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
+        "dotnet.formatting.organizeImportsOnFormat": true,
+        "files.watcherExclude": {
+          "**/bin/**": true,
+          "**/obj/**": true
+        },
+        "redhat.telemetry.enabled": false,
+        "rest-client.previewOption": "exchange",
+        "scm.defaultViewMode": "tree",
+        "terminal.integrated.defaultProfile.linux": "zsh"
       }
     }
   },
   // Use 'updateContentCommand' to run commands after the container is successfully created.
-  // "updateContentCommand": {
-  //   "dev-certs": "dotnet dev-certs https --clean && dotnet dev-certs https -t",
-  //   "clean": "rm -rf **/bin **/obj"
-  // },
+  "updateContentCommand": {
+    "dev-certs": "dotnet dev-certs https --clean && dotnet dev-certs https -t",
+    "dapr-setup": "dapr uninstall --all && dapr init",
+    "clean": "rm -rf **/bin **/obj"
+  },
   // Use 'postCreateCommand' to run commands after the container is created.
-  // "postCreateCommand": {
-  //   "init": "dapr init",
-  //   "restore": "dotnet restore --no-cache --force"
-  // }
+  "postCreateCommand": {
+    "restore": "dotnet restore --no-cache --force || exit 0"
+  }
 }
