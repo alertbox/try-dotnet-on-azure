@@ -54,16 +54,21 @@
     "vscode": {
       // Add the IDs of extensions you want installed when the container is created.
       "extensions": [
-        // Read more https://github.com/microsoft/vscode-dotnettools/issues/562
+        // .NET and C#
         "ms-dotnettools.csdevkit",
+        // Azure and Kubernetes
         "ms-vscode.vscode-node-azure-pack",
-        "ms-mssql.mssql",
+        "ms-kubernetes-tools.vscode-kubernetes-tools",
+        "ms-kubernetes-tools.vscode-aks-tools",
+        "ms-azuretools.vscode-azureterraform",
         "humao.rest-client",
-
+        // Db
+        "ms-mssql.mssql",
+        "ms-mssql.sql-database-projects-vscode",
+        // AI and Copilot
         "GitHub.copilot",
-        "GitHub.copilot-chat",
-        "ms-azuretools.vscode-azure-github-copilot",
-
+        // Misc.
+        "EditorConfig.EditorConfig",
         "redhat.vscode-yaml",
         "editorconfig.editorconfig",
         "albert.tabout",
