@@ -38,11 +38,9 @@
   },
   "containerEnv": {
     // Set dotnet CLI environment settings.
-    "DOTNET_RUNNING_IN_CONTAINER": "1",
-    "DOTNET_USE_POLLING_FILE_WATCHER": "1",
-    "DOTNET_CLI_TELEMETRY_OPTOUT": "1",
-    "DOTNET_GENERATE_ASPNET_CERTIFICATE": "1",
-    "DOTNET_NOLOGO": "1",
+    "DOTNET_CLI_TELEMETRY_OPTOUT": "true",
+    "DOTNET_GENERATE_ASPNET_CERTIFICATE": "true",
+    "DOTNET_NOLOGO": "true",
     // Set ASP.NET environment settings.
     "ASPNETCORE_URLS": "http://+:8080;https://+:8081",
     "ASPNETCORE_ENVIRONMENT": "Development",
@@ -73,7 +71,9 @@
         "editorconfig.editorconfig",
         "albert.tabout",
         "streetsidesoftware.code-spell-checker",
-        "redhat.fabric8-analytics"
+        "redhat.fabric8-analytics",
+        // Notebooks
+        "ms-dotnettools.dotnet-interactive-vscode"
       ],
       // Set *default* container specific settings.json values on container create.
       "settings": {
