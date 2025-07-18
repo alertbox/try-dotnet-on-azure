@@ -32,9 +32,7 @@
     "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
       "minikube": "none"
     },
-    "ghcr.io/dapr/cli/dapr-cli:0": {},
-    "ghcr.io/devcontainers/features/node:1": "lts",
-    "ghcr.io/alertbox/oven-sh/bun:1": {}
+    "ghcr.io/dapr/cli/dapr-cli:0": {}
   },
   "containerEnv": {
     // Set dotnet CLI environment settings.
