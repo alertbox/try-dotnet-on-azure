@@ -2,7 +2,6 @@
 <Project>
   <!-- See https://aka.ms/dotnet/msbuild/customize for more details on customizing your build -->
   <PropertyGroup Label="Sdk">
-	  <DefaultNetCoreTargetFramework>net8.0</DefaultNetCoreTargetFramework>
 	  <IsPackable>false</IsPackable>
 	  <IsTestProject>$(MSBuildProjectName.EndsWith('.Tests'))</IsTestProject>
     <Nullable>enable</Nullable>
@@ -11,13 +10,13 @@
 
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <DebugType>full</DebugType>
-    <DefinteConstants>DEBUG;TRACE;$(DefineConstants)</DefinteConstants>
+    <DefineConstants>DEBUG;TRACE;$(DefineConstants)</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <Optimize>true</Optimize>
     <DebugType>embedded</DebugType>
-    <DefinteConstants>TRACE;$(DefineConstants)</DefinteConstants>
+    <DefineConstants>TRACE;$(DefineConstants)</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup Label="Add Internals Visibility" Condition="'$(IsTestProject)' != 'true'">
@@ -31,9 +30,9 @@
 
   <PropertyGroup Label="General Info">
 	<Authors>Kosala Nuwan Perera</Authors>
-	<Company>Alertbox Inc.</Company>
+	<Company>The Alertbox, Inc.</Company>
 	<Copyright>Copyright (c) $([System.DateTime]::Now.ToString('yyyy')) $(Company)</Copyright>
-	<RepositoryUrl>https://github.com/alertbox/devcontainers-try-dotnet-stuff</RepositoryUrl>
+	<RepositoryUrl>https://github.com/alertbox/try-dotnet-on-azure</RepositoryUrl>
 	<RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
