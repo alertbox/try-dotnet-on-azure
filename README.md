@@ -48,6 +48,6 @@ Have a suggestion or a bug fix? Just open a pull request or an issue. Include cl
 
 ## License
 
-Copyright &copy; Alertbox, Inc. (@alertbox). All rights reserved.
+Copyright &copy; The Alertbox, Inc. All rights reserved.
 
 The source code is license under the [MIT license](#MIT-1-ov-file).
