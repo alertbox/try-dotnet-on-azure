@@ -18,7 +18,7 @@
       "configureZshAsDefaultShell": true
     },
     "ghcr.io/devcontainers/features/github-cli:1": {},
-    "ghcr.io/devcontainers/features/dotnet:2": "lts",
+    "ghcr.io/devcontainers/features/dotnet:2": {},
     "ghcr.io/devcontainers/features/azure-cli:1": {
       "extensions": "azure-devops, containerapp, staticwebapp"
     },
@@ -26,23 +26,14 @@
     // Read more https://github.com/hashicorp/vscode-terraform/issues/1524#issuecomment-1614892272
     "ghcr.io/alertbox/opentofu/tofu:1": {},
     "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
-      "moby": false,
-      "dockerDashComposeVersion": "v2"
-    },
-    "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
-      "minikube": "none"
-    },
-    "ghcr.io/dapr/cli/dapr-cli:0": {},
-    "ghcr.io/devcontainers/features/node:1": "lts",
-    "ghcr.io/alertbox/oven-sh/bun:1": {}
+      "moby": false
+    }
   },
   "containerEnv": {
     // Set dotnet CLI environment settings.
-    "DOTNET_RUNNING_IN_CONTAINER": "1",
-    "DOTNET_USE_POLLING_FILE_WATCHER": "1",
-    "DOTNET_CLI_TELEMETRY_OPTOUT": "1",
-    "DOTNET_GENERATE_ASPNET_CERTIFICATE": "1",
-    "DOTNET_NOLOGO": "1",
+    "DOTNET_CLI_TELEMETRY_OPTOUT": "true",
+    "DOTNET_GENERATE_ASPNET_CERTIFICATE": "true",
+    "DOTNET_NOLOGO": "true",
     // Set ASP.NET environment settings.
     "ASPNETCORE_URLS": "http://+:8080;https://+:8081",
     "ASPNETCORE_ENVIRONMENT": "Development",
@@ -56,32 +47,24 @@
       "extensions": [
         // .NET and C#
         "ms-dotnettools.csdevkit",
+        "humao.rest-client",
+        // Notebooks
+        "ms-dotnettools.dotnet-interactive-vscode",
         // Azure and Kubernetes
         "ms-vscode.vscode-node-azure-pack",
-        "ms-kubernetes-tools.vscode-kubernetes-tools",
-        "ms-kubernetes-tools.vscode-aks-tools",
         "ms-azuretools.vscode-azureterraform",
-        "humao.rest-client",
         // Db
         "ms-mssql.mssql",
         "ms-mssql.sql-database-projects-vscode",
-        // AI and Copilot
-        "GitHub.copilot",
         // Misc.
         "EditorConfig.EditorConfig",
         "redhat.vscode-yaml",
-        "editorconfig.editorconfig",
         "albert.tabout",
         "streetsidesoftware.code-spell-checker",
         "redhat.fabric8-analytics"
       ],
       // Set *default* container specific settings.json values on container create.
       "settings": {
-        "github.copilot.chat.agent.runTasks": true,
-        "github.copilot.chat.codeGeneration.useInstructionFiles": true,
-        "debug.internalConsoleOptions": "neverOpen",
-        "diffEditor.diffAlgorithm": "advanced",
-        "diffEditor.experimental.showMoves": true,
         "bicep.enableSurveys": false,
         "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
         "dotnet.formatting.organizeImportsOnFormat": true,
@@ -90,17 +73,14 @@
           "**/obj/**": true
         },
         "redhat.telemetry.enabled": false,
-        "rest-client.previewOption": "exchange",
-        "scm.defaultViewMode": "tree",
         "terminal.integrated.defaultProfile.linux": "zsh"
       }
     }
   },
   // Use 'updateContentCommand' to run commands after the container is successfully created.
   "updateContentCommand": {
-    "dev-certs": "dotnet dev-certs https --clean && dotnet dev-certs https -t",
-    "dapr-setup": "dapr uninstall --all && dapr init",
-    "clean": "rm -rf **/bin **/obj"
+    "dev-certs": "dotnet dev-certs https -t || exit 0",
+    "clean": "rm -rf **/bin **/obj || exit 0"
   },
   // Use 'postCreateCommand' to run commands after the container is created.
   "postCreateCommand": {
