@@ -1,4 +1,4 @@
-Follow the convensional commit message format when writing a pull request. 
+Follow the conventional commit message format when writing a pull request.
 See https://www.conventionalcommits.org/en/v1.0.0/#summary
 
 ```text
