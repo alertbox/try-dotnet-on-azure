@@ -11,9 +11,6 @@ charset = utf-8
 end_of_line = lf
 trim_trailing_whitespace = true
 
-# Spell checker configuration
-spelling_exclusion_path = .\.spellcheckignore
-
 # Code files
 [*.xaml]
 indent_size = 4

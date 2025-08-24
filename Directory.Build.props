@@ -29,7 +29,7 @@
   </PropertyGroup>
 
   <PropertyGroup Label="General Info">
-	<Authors>Kosala Nuwan Perera</Authors>
+	<Authors>Kosala (KP) Perera</Authors>
 	<Company>The Alertbox, Inc.</Company>
 	<Copyright>Copyright (c) $([System.DateTime]::Now.ToString('yyyy')) $(Company)</Copyright>
 	<RepositoryUrl>https://github.com/alertbox/try-dotnet-on-azure</RepositoryUrl>

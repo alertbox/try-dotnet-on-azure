@@ -1,7 +1,5 @@
 {
   "name": ".NET on Azure",
-  // See complete list https://hub.docker.com/_/microsoft-dotnet-sdk/
-  // Or https://mcr.microsoft.com/v2/dotnet/sdk/tags/list
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [
@@ -10,9 +8,9 @@
     // Https
     8081
   ],
-  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // More info https://aka.ms/dev-containers-non-root.
   "remoteUser": "root",
-  // Add more features. See complete list https://github.com/devcontainers/features
+  // See complete list https://github.com/devcontainers/features
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {
       "configureZshAsDefaultShell": true
@@ -48,7 +46,7 @@
         // .NET and C#
         "ms-dotnettools.csdevkit",
         "humao.rest-client",
-        // Notebooks
+        // Notebooks require >= .NET9
         "ms-dotnettools.dotnet-interactive-vscode",
         // Azure and Kubernetes
         "ms-vscode.vscode-node-azure-pack",
@@ -68,21 +66,28 @@
         "bicep.enableSurveys": false,
         "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
         "dotnet.formatting.organizeImportsOnFormat": true,
-        "files.watcherExclude": {
-          "**/bin/**": true,
-          "**/obj/**": true
-        },
+        "cSpell.dictionaries": [
+          "ignore"
+        ],
+        "cSpell.dictionaryDefinitions": [
+          {
+            "name": "ignore",
+            "path": "${workspaceFolder}/.spellcheckignore"
+          }
+        ],
+        "cSpell.useGitignore": true,
         "redhat.telemetry.enabled": false,
         "terminal.integrated.defaultProfile.linux": "zsh"
       }
     }
   },
-  // Use 'updateContentCommand' to run commands after the container is successfully created.
   "updateContentCommand": {
     "dev-certs": "dotnet dev-certs https -t || exit 0",
     "clean": "rm -rf **/bin **/obj || exit 0"
   },
-  // Use 'postCreateCommand' to run commands after the container is created.
+  "mounts": [
+    "source=${localEnv:HOME}/.azure,target=/root/.azure,type=bind,consistency=cached"
+  ],
   "postCreateCommand": {
     "restore": "dotnet restore --no-cache --force || exit 0"
   }
