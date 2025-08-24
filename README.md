@@ -2,8 +2,8 @@
 
 Start a dev container and get to developing .NET apps leveraging a [variety of Azure services][az-services-for-dotnet].
 
-[<img width="100%" 
-      alt="Azure SDK for .NET" 
+[<img width="100%"
+      alt="Azure SDK for .NET"
       src="https://learn.microsoft.com/en-us/dotnet/azure/sdk/media/azure-sdk-for-dotnet-overview.png" />][az-sdk-for-dotnet]
 
 [Learn more about Azure SDK for .NET][az-sdk-for-dotnet]
@@ -18,7 +18,7 @@ Start a dev container and get to developing .NET apps leveraging a [variety of A
 
 You can also run this repo locally by following these repetitive steps:
 
-1. You want to ensure the repo is cloned to your local machine, and 
+1. You want to ensure the repo is cloned to your local machine, and
 2. Open it in VS Code.
 
 >  See [.NET Docker Images][dotnet-docker-images] for other variations that suites your hardware.
@@ -47,7 +47,5 @@ Have a suggestion or a bug fix? Just open a pull request or an issue. Include cl
 [devcontainers-repo]: https://github.com/devcontainers
 
 ## License
-
-Copyright &copy; The Alertbox, Inc. All rights reserved.
 
 The source code is license under the [MIT license](#MIT-1-ov-file).
